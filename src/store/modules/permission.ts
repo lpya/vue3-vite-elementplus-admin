@@ -62,7 +62,7 @@ const getChildrenRouter = (routes: IAsyncRoutes[], fatherName: string, isFirst: 
   const arr: RouteRecordRaw[] = []
   // let accessRoutes: RouteRecordRaw
   routes.forEach((item) => {
-    const dirName: string = item.father === process.env.VUE_APP_PREFIX_ROUTE ? `/${item.identifier.toLowerCase()}` : `${fatherName.toLowerCase()}`
+    const dirName: string = item.father === process.env.VUE_APP_PREFIX_ROUTE ? `/${item.identifier.toLowerCase()}` : `/${fatherName.toLowerCase()}`
     if (item.children && item.children.length > 0) {
       const accessRoutes: RouteRecordRaw = {
         path: item.url,
@@ -71,8 +71,9 @@ const getChildrenRouter = (routes: IAsyncRoutes[], fatherName: string, isFirst: 
         meta: { title: item.title, icon: item.icon },
         children: []
       }
-      accessRoutes.children = accessRoutes.children?.concat(getChildrenRouter(item.children, item.identifier, false))
+      accessRoutes.children = getChildrenRouter(item.children, item.identifier, false)
       console.log(accessRoutes, 'aaa')
+      arr.push(accessRoutes)
     } else {
       if (isFirst) {
         arr.push({
@@ -82,11 +83,11 @@ const getChildrenRouter = (routes: IAsyncRoutes[], fatherName: string, isFirst: 
           meta: { title: item.title, icon: item.icon }
         })
       } else {
-        console.log(item)
+        console.log(`../../views${dirName}/Index.vue`)
         arr.push({
           path: item.url,
           name: `${getTitleCase(item.identifier)}`,
-          component: modules[`../../views${dirName}/Index.vue`],
+          component: modules[`../../views/${dirName}/Index.vue`],
           meta: { title: item.title, icon: item.icon }
         })
       }
