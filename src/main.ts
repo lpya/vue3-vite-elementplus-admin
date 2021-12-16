@@ -3,11 +3,19 @@ import App from './App.vue'
 import router from '@/router'
 import store from './store'
 
+import '@/styles/index.scss' //全局样式
+import '@/assets/iconfont/iconfont.scss'
 const app = createApp(App)
-import ElementPlus from 'element-plus'
-// import 'element-plus/lib/theme-chalk/index.css'
+
+import { ElButton, ElMenu, ElIcon, ElBreadcrumb, ElBreadcrumbItem } from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
-app.use(ElementPlus)
+app.use(ElButton)
+app.use(ElMenu)
+app.use(ElIcon)
+app.use(ElBreadcrumb)
+app.use(ElBreadcrumbItem)
+
+import './permission'
 
 app.use(router)
 app.use(store)

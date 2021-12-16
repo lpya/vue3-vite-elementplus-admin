@@ -1,3 +1,10 @@
+/*
+ * @Description:初步封装axios
+ * @Author: hutu
+ * @Date: 2021-12-15 15:18:42
+ * @LastEditors: hutu
+ * @LastEditTime: 2021-12-16 11:30:34
+ */
 import axios from 'axios'
 
 const service = axios.create({

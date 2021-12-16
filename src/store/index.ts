@@ -1,14 +1,15 @@
 import { createStore } from 'vuex'
+import permission from './modules/permission'
 
-const state = {
-  testnum: 1
-}
+const state = {}
 
 const mutations = {}
 
 const actions = {}
 
-const modules = {}
+const modules = {
+  permission
+}
 
 export default createStore({
   state,

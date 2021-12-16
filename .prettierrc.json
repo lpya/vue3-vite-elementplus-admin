@@ -1,5 +1,6 @@
 {
     "semi": false,
+    "printWidth": 3000,
     "eslintIntegration": true,
     "singleQuote": true,
     "endOfLine": "auto",

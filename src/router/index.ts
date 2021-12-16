@@ -1,21 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    redirect: 'dashboard'
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/views/dashboard/Index.vue'),
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/Index.vue'),
     meta: {
-      title: '控制面板'
+      title: '用户登陆'
     }
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes: constantRoutes
 })
 export default router

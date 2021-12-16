@@ -1,0 +1,42 @@
+@import "./sidebar.scss";
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#app {
+    font-size: 14px;
+}
+
+// // 自定义滚动条
+// ::-webkit-scrollbar {
+//     width: 6px;
+//     /*滚动条宽度*/
+//     height: 6px;
+//     /*滚动条高度*/
+//     transform: translateX(-50px);
+// }
+
+// /*定义滚动条轨道 */
+// ::-webkit-scrollbar-track {
+//     background-color: transparent;
+//     /*滚动条的背景颜色*/
+// }
+
+// /*定义滑块 */
+// ::-webkit-scrollbar-thumb {
+//     cursor: pointer;
+//     background-color: #d2e0ed;
+//     border-radius: 2px;
+//     /*滚动条的背景颜色*/
+// }
+
+// ::-webkit-scrollbar-thumb:hover {
+//     background-color: #d2e0ed;
+//     /*滚动条的背景颜色*/
+// }
+// ::-webkit-scrollbar-thumb:active {
+//     background-color: #d2e0ed;
+//     /*滚动条的背景颜色*/
+// }
