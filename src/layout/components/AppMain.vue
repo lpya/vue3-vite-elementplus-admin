@@ -1,16 +1,20 @@
 <template>
-  <section class="app-main">
+  <div class="app-main">
     <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
+      <transition name="fade" mode="out-in" appear>
         <keep-alive>
           <component :is="Component"></component>
         </keep-alive>
       </transition>
     </router-view>
-  </section>
+  </div>
 </template>
 <script lang="ts" setup>
 const color = 'red'
+// const handleComponent = (Component: any) => {
+//   console.log(Component)
+//   return Component
+// }
 </script>
 <style lang="scss" scoped>
 .text {

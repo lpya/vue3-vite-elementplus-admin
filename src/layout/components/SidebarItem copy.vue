@@ -3,11 +3,11 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-20 11:25:47
+ * @LastEditTime: 2021-12-20 09:33:44
 -->
 <template>
   <template v-for="item in props.list" :key="item.path">
-    <el-menu-item :index="item.path" v-if="verifyRouteChildren(item.children)">
+    <el-menu-item v-if="verifyRouteChildren(item.children)" :index="item.children ? item.children[0].path : '/'">
       <el-icon v-if="props.isFirst" class="iconfont" :class="item.meta?.icon" />
       <template #title>
         <span>{{ item.meta?.title }}</span>
@@ -35,6 +35,6 @@ const props = defineProps<{
  * @return {boolean}
  */
 const verifyRouteChildren = (children?: RouteRecordRaw[]): boolean => {
-  return !children || children.length === 0
+  return children?.length === 1 && children[0].path.split('/').length === 2
 }
 </script>

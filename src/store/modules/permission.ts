@@ -5,6 +5,7 @@ import Layout from '@/layout/Index.vue'
 import router, { constantRoutes } from '@/router'
 import { Commit } from 'vuex'
 const modules = import.meta.glob('../../views/**/**.vue')
+
 const state: IPermission = {
   accessRoutes: [], //模拟异步路由
   menuCollapse: false //侧边栏展开||折叠
@@ -28,19 +29,31 @@ const actions = {
    */
   [GENERATE_ROUTES]({ commit }: { commit: Commit }, data: IAsyncRoutes[]): Promise<RouteRecordRaw[]> {
     return new Promise((resolve) => {
-      let arr: RouteRecordRaw[] = []
-      const accessRoutes: RouteRecordRaw = {
-        //动态路由表
-        path: '/',
-        component: Layout,
-        children: []
-      }
-      const VUE_APP_PREFIX_ROUTE = process.env.VUE_APP_PREFIX_ROUTE || 'sys.blog'
-      arr = getChildrenRouter(data, VUE_APP_PREFIX_ROUTE, true)
-      console.log(arr)
-      accessRoutes.children = arr
-      router.addRoute(accessRoutes)
-      resolve(arr)
+      const arr: RouteRecordRaw[] = []
+      let menuList: RouteRecordRaw[] = []
+      data.forEach((item) => {
+        const accessRoutes: RouteRecordRaw = {
+          path: `/${item.identifier}`,
+          component: Layout,
+          meta: { title: item.title, icon: item.icon },
+          children: []
+        }
+        let isEnd: boolean = true
+        if (item.children && item.children.length > 0) {
+          isEnd = false
+        }
+        accessRoutes.children = getChildrenRouter(item, item.identifier, isEnd)
+        router.addRoute(accessRoutes)
+        arr.push(accessRoutes)
+        if (isEnd) {
+          menuList = menuList.concat(accessRoutes.children)
+        } else {
+          menuList.push(accessRoutes)
+        }
+      })
+      router.options.routes = constantRoutes.concat(arr)
+      commit(SET_ROUTES, menuList)
+      resolve(menuList)
     })
   }
 }
@@ -58,55 +71,111 @@ const permission = {
  * @param {boolean} isFirst 是否是第一级路由
  * @return {Array}
  */
-const getChildrenRouter = (routes: IAsyncRoutes[], fatherName: string, isFirst: boolean): Array<RouteRecordRaw> => {
-  const arr: RouteRecordRaw[] = []
-  // let accessRoutes: RouteRecordRaw
-  routes.forEach((item) => {
-    const dirName: string = item.father === process.env.VUE_APP_PREFIX_ROUTE ? `/${item.identifier.toLowerCase()}` : `/${fatherName.toLowerCase()}`
-    if (item.children && item.children.length > 0) {
-      const accessRoutes: RouteRecordRaw = {
-        path: item.url,
-        name: `${getTitleCase(item.identifier)}`,
-        component: modules[`../../views${dirName}/Index.vue`],
-        meta: { title: item.title, icon: item.icon },
-        children: []
-      }
-      accessRoutes.children = getChildrenRouter(item.children, item.identifier, false)
-      console.log(accessRoutes, 'aaa')
-      arr.push(accessRoutes)
-    } else {
-      if (isFirst) {
+const getChildrenRouter = (routes: IAsyncRoutes, fatherName: string, isEnd: boolean): RouteRecordRaw[] => {
+  const arr = []
+  if (routes.children && routes.children.length > 0) {
+    routes.children.forEach((item) => {
+      const routerData = getRouterData(fatherName, item.identifier, item.url, isEnd)
+      if (item.children && item.children.length > 0) {
         arr.push({
-          path: item.url,
-          name: `${getTitleCase(item.identifier)}`,
-          component: modules[`../../views${dirName}/Index.vue`],
-          meta: { title: item.title, icon: item.icon }
+          path: routerData.routePath,
+          name: routerData.componentName,
+          component: modules[routerData.componentPath],
+          meta: { title: item.title, icon: item.icon },
+          children: getChildrenRouter(item, routerData.fatherName, false)
         })
       } else {
-        console.log(`../../views${dirName}/Index.vue`)
         arr.push({
-          path: item.url,
-          name: `${getTitleCase(item.identifier)}`,
-          component: modules[`../../views/${dirName}/Index.vue`],
+          path: routerData.routePath,
+          name: routerData.componentName,
+          component: modules[routerData.componentPath],
           meta: { title: item.title, icon: item.icon }
         })
       }
-    }
-  })
+    })
+  } else {
+    const routerData = getRouterData(fatherName, routes.identifier, routes.url, isEnd)
+    arr.push({
+      path: routerData.routePath,
+      name: routerData.componentName,
+      component: modules[routerData.componentPath],
+      meta: { title: routes.title, icon: routes.icon }
+    })
+  }
   return arr
 }
+interface RouterData {
+  fatherName: string //连接后的子父级
+  componentName: string //组件名称
+  routePath: string //路由
+  componentPath: string //组件路径
+}
 /**
- * @desc: 获取文件当前目录
- * @param {string} identifier 标识符
+ * @desc: 获取路由数据
  * @param {string} fatherName 父级标识符
- * @param {boolean} isFirst 是否是第一路由
- * @return {string}
+ * @param {string} identifier 子级标识符
+ * @param {string} url 路由
+ * @param {boolean} isEnd 是否是最后一级
+ * @return {*}
  */
-const getDirName = (identifier: string, fatherName: string, isFirst: boolean): string => {
-  if (isFirst) {
-    return `/${identifier.toLowerCase()}`
+const getRouterData = (fatherName: string, identifier: string, url: string, isEnd: boolean): RouterData => {
+  const obj: RouterData = {
+    fatherName: '',
+    componentName: '',
+    routePath: '',
+    componentPath: ''
   }
-  return fatherName.toLowerCase()
+  obj.fatherName = getCurrentFatherName(fatherName, identifier, isEnd)
+  obj.routePath = getCurrentRoutePath(fatherName, url, isEnd)
+  obj.componentPath = getCurrentComponentPath(obj.fatherName)
+  obj.componentName = getCurrentComponentName(fatherName, identifier)
+  return obj
+}
+/**
+ * @desc: 获取当前路由子父级连接后的路径
+ * @param {string} fatherName 父级标识符
+ * @param {string} identifier 子级标识符
+ * @param {boolean} isEnd 是否是最后一级路由
+ * @return {*}
+ */
+const getCurrentFatherName = (fatherName: string, identifier: string, isEnd: boolean): string => {
+  if (isEnd) {
+    return fatherName
+  }
+  return `${fatherName}/${identifier}`
+}
+/**
+ * @desc: 获取组件路径
+ * @param {string} fatherName 连接后的路径
+ * @return {*}
+ */
+const getCurrentComponentPath = (fatherName: string): string => {
+  return `../../views/${fatherName}/Index.vue`
+}
+/**
+ * @desc: 获取组件名称
+ * @param {string} fatherName 父级标识符
+ * @param {string} identifier 子级标识符
+ * @return {*}
+ */
+const getCurrentComponentName = (fatherName: string, identifier: string): string => {
+  if (fatherName === identifier) {
+    return getTitleCase(fatherName.replace('/', ''))
+  }
+  return getTitleCase(fatherName.replace('/', '')) + getTitleCase(identifier.replace('/', ''))
+}
+/**
+ * @desc: 获取当前路径名称
+ * @param {string} fatherName 父级标识符
+ * @param {string} url 路由
+ * @param {boolean} isEnd 是否是最后一级路由
+ * @return {*}
+ */
+const getCurrentRoutePath = (fatherName: string, url: string, isEnd: boolean): string => {
+  if (isEnd) {
+    return `/${fatherName}`
+  }
+  return `/${fatherName}${url}`
 }
 /**
  * @desc: 首字母大写

@@ -17,8 +17,8 @@ router.beforeEach(async (to, from, next) => {
   //设置site标题
   document.title = getPageTitle(String(to.meta.title))
   //设置动态路由
-  await store.dispatch(GENERATE_ROUTES, asyncRoutes)
   if (isDynamicRouter) {
+    await store.dispatch(GENERATE_ROUTES, asyncRoutes)
     next({ ...to, replace: true })
     isDynamicRouter = false
   } else {

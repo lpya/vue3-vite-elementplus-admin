@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-16 16:13:29
+ * @LastEditTime: 2021-12-20 10:00:42
  */
 import { IAsyncRoutes } from '@/interface/index'
 /**
@@ -35,8 +35,8 @@ export const asyncRoutes: IAsyncRoutes[] = [
         url: '/type',
         icon: 'icon-dashboard',
         children: [
-          { father: 'article', identifier: 'list1', title: '文章列表1', type: 'menu', url: '/list1', icon: 'icon-dashboard' },
-          { father: 'article', identifier: 'type1', title: '文章类别1', type: 'menu', url: '/type1', icon: 'icon-dashboard' }
+          { father: 'type', identifier: 'list1', title: '文章列表1', type: 'menu', url: '/list1', icon: 'icon-dashboard' },
+          { father: 'type', identifier: 'type1', title: '文章类别1', type: 'menu', url: '/type1', icon: 'icon-dashboard' }
         ]
       }
     ]
