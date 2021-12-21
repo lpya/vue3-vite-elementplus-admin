@@ -1,43 +1,92 @@
 <!--
- * @Descripttion: 
+ * @Descripttion: 面包屑
  * @Author: hutu
  * @Date: 2021-12-13 08:41:23
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-16 11:46:23
+ * @LastEditTime: 2021-12-21 16:54:09
 -->
 <template>
   <div class="breadcrumb">
-    <!-- <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">控制面板</el-breadcrumb-item>
-      <el-breadcrumb-item>数据展示</el-breadcrumb-item>
-    </el-breadcrumb> -->
+    <el-breadcrumb separator="/">
+      <transition-group name="breadcrumb">
+        <el-breadcrumb-item v-for="(item, key) in state.leveList" :key="key" :to="{ path: item.path }">{{ item.title }}</el-breadcrumb-item>
+      </transition-group>
+    </el-breadcrumb>
   </div>
 </template>
 
 <script lang="ts" setup>
-// import {
-//   useRoute,
-//   onBeforeRouteUpdate,
-//   onBeforeRouteLeave,
-//   RouteRecordName
-// } from 'vue-router'
-// const route = useRoute()
-// console.log(route)
+import { useRoute, onBeforeRouteUpdate, onBeforeRouteLeave, RouteRecordNormalized } from 'vue-router'
+import { reactive } from 'vue'
+interface ILeveList {
+  path: string
+  title: unknown
+}
+const route = useRoute()
+const state = reactive({
+  leveList: [] as ILeveList[]
+})
+/**
+ * @desc: 获取面包屑列表
+ * @param {RouteRecordNormalized} data
+ * @return {*}
+ */
+const getLevelList = (data: RouteRecordNormalized[]) => {
+  const leveList: ILeveList[] = []
+  data.forEach((item, key) => {
+    if (key === 0) {
+      if (item.path === '/dashboard') {
+        return false
+      } else {
+        leveList.push({ path: '/dashboard', title: '首页' })
+        if (!item.meta || !item.meta.title) {
+          return false
+        } else {
+          leveList.push({ path: item.path, title: item.meta.title })
+        }
+      }
+    } else {
+      leveList.push({ path: item.path, title: item.meta.title })
+    }
+  })
+  state.leveList = leveList
+}
+getLevelList(route.matched)
 
-// onBeforeRouteLeave((to, form) => {
-//   let matched = to.matched.filter((item) => item.meta && item.meta.title)
-//   const first = matched[0]
-//   console.log(to)
-//   // isDashboard(name)
-// })
-// const isDashboard = (routes: RouteRecordName) => {
-//   // const name = routes && routes.name
-//   if (!routes) {
-//     return false
-//   }
-//   // return routes.toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
-// }
-// // onBeforeRouteLeave((to, form) => {
-// //     console.log(form, "aaaa")
-// // })
+onBeforeRouteUpdate((to) => {
+  getLevelList(to.matched)
+})
+
+onBeforeRouteLeave((to) => {
+  getLevelList(to.matched)
+})
 </script>
+<style lang="scss">
+.breadcrumb {
+  .el-breadcrumb {
+    .el-breadcrumb__item {
+      span {
+        font-weight: 400 !important;
+      }
+    }
+    .el-breadcrumb__item:last-child {
+      span {
+        color: $breadcrumbColor !important;
+      }
+    }
+  }
+  .breadcrumb-leave-active,
+  .breadcrumb-enter-active {
+    transition: all 0.5s;
+  }
+  .breadcrumb-enter-from,
+  .breadcrumb-leave-active {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  .breadcrumb-leave-to {
+    transition: all 0.5s;
+  }
+}
+</style>

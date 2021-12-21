@@ -35,12 +35,13 @@ const actions = {
         const accessRoutes: RouteRecordRaw = {
           path: `/${item.identifier}`,
           component: Layout,
-          meta: { title: item.title, icon: item.icon },
+          // meta: { title: item.title, icon: item.icon },
           children: []
         }
         let isEnd: boolean = true
         if (item.children && item.children.length > 0) {
           isEnd = false
+          accessRoutes.meta = { title: item.title, icon: item.icon }
         }
         accessRoutes.children = getChildrenRouter(item, item.identifier, isEnd)
         router.addRoute(accessRoutes)

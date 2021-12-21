@@ -11,10 +11,6 @@
 </template>
 <script lang="ts" setup>
 const color = 'red'
-// const handleComponent = (Component: any) => {
-//   console.log(Component)
-//   return Component
-// }
 </script>
 <style lang="scss" scoped>
 .text {

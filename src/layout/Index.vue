@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-20 09:39:14
+ * @LastEditTime: 2021-12-21 14:32:33
 -->
 <template>
   <div class="layout">
@@ -35,7 +35,6 @@ const route = useRoute()
 
 const menuCollapse = computed(() => store.state.permission.menuCollapse)
 const accessRoutes = computed(() => store.state.permission.accessRoutes)
-console.log(accessRoutes.value)
 /**
  * @desc:  侧边栏展开||折叠
  * @param {boolean} flag
