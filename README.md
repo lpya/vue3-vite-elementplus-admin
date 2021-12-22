@@ -1,11 +1,37 @@
-# Vue 3 + Typescript + Vite
+<h1>
+  <p align="center">
+    vue3+vite+elemetnplus+tempalte
+  </p>
+</h1>
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<p align="center">
+  <img alt="vue" src="https://img.shields.io/badge/vue-v3.2.25-brightgreen" />
+  <img alt="vite" src="https://img.shields.io/npm/v/vite?label=vite&logo=vite" />
+  <img alt="element-plus" src="https://img.shields.io/npm/v/element-plus?label=element-plus" />
+  <img alt="vue-router" src="https://img.shields.io/badge/vue--router-v4.0.12-green" />
+  <img alt="vuex" src="https://img.shields.io/badge/vuex-v4.0.2-blue" />
+  <img alt="axios" src="https://img.shields.io/npm/v/axios?label=axios" />
+</p>
 
-## Recommended IDE Setup
+## 简介
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+[vue3+vite+elemetnplus+tempalte](https://github.com/lpya/vue3-vite-elementplus-template)是一个常用配置的起手模板，它内置了vue3、ts、vite、vuex、vue-router、scss、elementplus、axios、eslint
 
-## Type Support For `.vue` Imports in TS
+## 开发
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+```shell
+#克隆项目
+git clone https://github.com/lpya/vue3-vite-elementplus-template.git
+
+#进入项目目录
+cd vue3-vite-elementplus-template
+
+#安装依赖
+npm install
+
+#启动服务
+npm run dev
+
+#打包发布
+npm run build
+```

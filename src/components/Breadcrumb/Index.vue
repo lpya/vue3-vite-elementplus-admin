@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-13 08:41:23
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-21 16:54:09
+ * @LastEditTime: 2021-12-21 17:12:21
 -->
 <template>
   <div class="breadcrumb">
@@ -38,7 +38,7 @@ const getLevelList = (data: RouteRecordNormalized[]) => {
       if (item.path === '/dashboard') {
         return false
       } else {
-        leveList.push({ path: '/dashboard', title: '首页' })
+        leveList.push({ path: '/dashboard', title: '控制面板' })
         if (!item.meta || !item.meta.title) {
           return false
         } else {

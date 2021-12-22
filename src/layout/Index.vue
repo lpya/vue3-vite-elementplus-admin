@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-21 14:32:33
+ * @LastEditTime: 2021-12-22 15:20:06
 -->
 <template>
   <div class="layout">
@@ -12,7 +12,7 @@
     </div>
     <div class="layout-main">
       <div class="layout-header">
-        <Navbar @emitMenuCollapse="handleMenuCollapse" :collapse="menuCollapse" />
+        <Navbar />
       </div>
       <div class="layout-content">
         <AppMain />
@@ -29,23 +29,14 @@ import Sidebar from './components/Sidebar.vue'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
-import { SET_MENU_COLLAPSE } from '@/store/type'
 const store = useStore()
 const route = useRoute()
 
 const menuCollapse = computed(() => store.state.permission.menuCollapse)
 const accessRoutes = computed(() => store.state.permission.accessRoutes)
-/**
- * @desc:  侧边栏展开||折叠
- * @param {boolean} flag
- * @return {void}
- */
-const handleMenuCollapse = (flag: boolean): void => {
-  store.commit(SET_MENU_COLLAPSE, flag)
-}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .layout {
   display: flex;
   .layout-menu {
@@ -58,6 +49,7 @@ const handleMenuCollapse = (flag: boolean): void => {
     .layout-header {
       height: 50px;
       background: $white;
+      border-bottom: 1px solid #eee;
     }
     .layout-content {
       background: $baseBg;

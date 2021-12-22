@@ -17,7 +17,7 @@ const color = 'red'
   color: v-bind(color);
 }
 .app-main {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 51px);
   width: 100%;
   background: #f0f2f5;
   overflow: hidden;

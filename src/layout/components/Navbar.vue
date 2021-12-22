@@ -3,28 +3,41 @@
  * @Author: hutu
  * @Date: 2021-12-09 22:36:40
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-16 15:05:44
+ * @LastEditTime: 2021-12-22 16:17:34
 -->
 <template>
   <div class="navbar">
     <div class="left">
-      <div class="hamburger" @click="emitMenuCollapse">
-        <el-icon class="iconfont" :class="props.collapse ? 'icon-indent' : 'icon-outdent'"></el-icon>
-      </div>
+      <Hamburger @emitMenuCollapse="handleMenuCollapse" :collapse="menuCollapse" />
       <Breadcrumb />
     </div>
-    <div class="right">1</div>
+    <div class="right">
+      <HeaderSetting />
+      <Screenfull />
+      <HeaderAvatar />
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
 import Breadcrumb from '@/components/Breadcrumb/Index.vue'
-import { defineEmits } from 'vue'
-const props = defineProps<{
-  collapse: boolean
-}>()
-const emit = defineEmits(['emitMenuCollapse'])
-const emitMenuCollapse = (): void => {
-  emit('emitMenuCollapse', !props.collapse)
+import Hamburger from '@/components/Hamburger/Index.vue'
+import HeaderSetting from '@/components/HeaderSetting/Index.vue'
+import Screenfull from '@/components/Screenfull/Index.vue'
+import HeaderAvatar from '@/components/HeaderAvatar/Index.vue'
+
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import { SET_MENU_COLLAPSE } from '@/store/type'
+
+const store = useStore()
+const menuCollapse = computed(() => store.state.permission.menuCollapse)
+/**
+ * @desc:  侧边栏展开||折叠
+ * @param {boolean} flag
+ * @return {void}
+ */
+const handleMenuCollapse = (flag: boolean): void => {
+  store.commit(SET_MENU_COLLAPSE, flag)
 }
 </script>
 <style lang="scss">
@@ -35,19 +48,12 @@ const emitMenuCollapse = (): void => {
   > .left {
     display: flex;
     align-items: center;
-    .hamburger {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      &:hover {
-        cursor: pointer;
-        background: rgba(0, 0, 0, 0.1);
-      }
-      i {
-        font-size: 20px;
-      }
+  }
+  > .right {
+    display: flex;
+    align-items: center;
+    div:last-child {
+      margin-right: 15px;
     }
   }
 }

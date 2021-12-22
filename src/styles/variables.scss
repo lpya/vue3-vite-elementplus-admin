@@ -9,3 +9,19 @@ $subMenuBg: #1f2d3d;
 $subMenuHover: #001528;
 $sideBarWidth: 210px;
 $breadcrumbColor: #97a8be;
+
+.app-icon-hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    &:hover {
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.025);
+    }
+    i {
+      font-size: 20px;
+    }
+  }
+  
