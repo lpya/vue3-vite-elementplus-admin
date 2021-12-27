@@ -1,12 +1,11 @@
-const moduleA = {
-  state: () => ({
-    list: [
-      { id: 1, title: 'test' },
-      { id: 2, title: 'adbd' }
-    ]
-  }),
-  mutations: {},
-  actions: {},
-  getters: {}
+const state = {}
+const mutations = {}
+const actions = {}
+const getters = {}
+const user = {
+  state,
+  mutations,
+  actions,
+  getters
 }
-export default moduleA
+export default user

@@ -1,15 +1,15 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/login',
+    path: '/',
     name: 'Login',
     component: () => import('@/views/login/Index.vue'),
     meta: {
-      title: '用户登陆'
+      title: ''
     }
   }
 ]
-
+// createWebHistory(process.env.BASE_URL)
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: constantRoutes

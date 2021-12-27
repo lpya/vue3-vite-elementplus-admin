@@ -1,4 +1,17 @@
 import { RouteRecordRaw } from 'vue-router'
+/**
+ * 用户信息
+ */
+export interface IUser {
+  token: string | undefined
+}
+/**
+ * 用户登陆信息
+ */
+export interface ILogin {
+  username: string
+  password: string
+}
 
 /**
  * 自定义异步路由

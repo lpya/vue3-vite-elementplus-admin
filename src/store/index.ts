@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import permission from './modules/permission'
-
+import user from './modules/user'
 const state = {}
 
 const mutations = {}
@@ -8,7 +8,8 @@ const mutations = {}
 const actions = {}
 
 const modules = {
-  permission
+  permission,
+  user
 }
 
 export default createStore({

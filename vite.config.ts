@@ -2,9 +2,10 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 export default defineConfig({
+  base: './',
   define: {
     'process.env': {
-      VUE_APP_SITE_NAME: 'Vue3-Element-Admin',
+      VUE_APP_SITE_NAME: 'Vue3-Vite-ElementPlus-Admin',
       VUE_APP_PREFIX_ROUTE: 'sys.blog'
     }
   },

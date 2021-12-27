@@ -1,5 +1,12 @@
-import { IAsyncRoutes, IPermission } from '@/interface/index'
-import { SET_ROUTES, GENERATE_ROUTES, SET_MENU_COLLAPSE } from '../type/index'
+/*
+ * @Description:路由权限
+ * @Author: hutu
+ * @Date: 2021-12-21 16:57:25
+ * @LastEditors: hutu
+ * @LastEditTime: 2021-12-24 17:26:54
+ */
+import { IAsyncRoutes, IPermission } from '@/interface'
+import { SET_ROUTES, GENERATE_ROUTES, SET_MENU_COLLAPSE } from '../type'
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
 import router, { constantRoutes } from '@/router'
