@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-22 15:59:15
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-27 15:17:31
+ * @LastEditTime: 2021-12-27 16:29:42
 -->
 <template>
   <div class="header-avatar">

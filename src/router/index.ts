@@ -10,6 +10,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   }
 ]
 // createWebHistory(process.env.BASE_URL)
+// createWebHashHistory(process.env.BASE_URL)
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: constantRoutes

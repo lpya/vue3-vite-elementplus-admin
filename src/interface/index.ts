@@ -18,7 +18,7 @@ export interface ILogin {
  */
 export interface IAsyncRoutes {
   father: string //父级
-  identifier: string //标识码
+  identifier: string //标识码，也是目录名称
   title: string //名称
   icon: string //图标
   type: string //类别 menu：侧边栏
@@ -32,4 +32,15 @@ export interface IAsyncRoutes {
 export interface IPermission {
   accessRoutes: RouteRecordRaw[] //模拟异步路由
   menuCollapse: boolean //折叠菜单
+}
+
+/**
+ * 主题颜色
+ */
+export interface ITheme {
+  styles: IThemeStyles
+}
+export interface IThemeStyles {
+  menuBg: string
+  test: string
 }

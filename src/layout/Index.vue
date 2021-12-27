@@ -3,11 +3,11 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-22 15:20:06
+ * @LastEditTime: 2021-12-27 17:16:06
 -->
 <template>
   <div class="layout">
-    <div class="layout-menu" :style="{ width: menuCollapse ? '64px' : '210px' }">
+    <div class="layout-menu app-menu-bg" :style="{ width: menuCollapse ? '64px' : '210px' }">
       <Sidebar :list="accessRoutes" :route="route.path" :collapse="menuCollapse" />
     </div>
     <div class="layout-main">
@@ -40,7 +40,6 @@ const accessRoutes = computed(() => store.state.permission.accessRoutes)
 .layout {
   display: flex;
   .layout-menu {
-    background: $menuBg;
     transition: all 0.3s;
     overflow: hidden;
   }
