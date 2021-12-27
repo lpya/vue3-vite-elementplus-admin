@@ -1,4 +1,5 @@
 export const USER_LOGIN: string = 'USER_LOGIN' //用户登陆
+export const USER_LOGOUT: string = 'USER_LOGOUT' //退出登陆
 export const GENERATE_ROUTES: string = 'GENERATE_ROUTES' //获取路由表
 
 export const SET_TOKEN: string = 'SET_TOKEN' //设置token

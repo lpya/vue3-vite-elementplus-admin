@@ -1,3 +1,3 @@
 <template>
-  <div class="index">4444333</div>
+  <div class="index">dashboard</div>
 </template>

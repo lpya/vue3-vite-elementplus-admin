@@ -1,22 +1,14 @@
 <template>
   <div class="attachment">
-    <div class="content">asdfasdfasdfasd</div>
-    <div class="content">asdfasdfasdfasd</div>
+    <div class="content">attachment</div>
   </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
-<style lang="scss" scoped>
+<style lang="scss">
 .attachment {
   height: calc(100% - 40px);
   overflow: auto;
   padding: 20px;
-
   .content {
     background: #fff;
     padding: 20px;

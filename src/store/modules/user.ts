@@ -3,12 +3,12 @@
  * @Author: hutu
  * @Date: 2021-12-24 17:15:21
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-27 09:43:55
+ * @LastEditTime: 2021-12-27 10:57:45
  */
 import { IUser, ILogin } from '@/interface'
-import { USER_LOGIN, SET_TOKEN } from '../type'
+import { USER_LOGIN, SET_TOKEN, USER_LOGOUT } from '../type'
 import { Commit } from 'vuex'
-import { getToken, setToken } from '@/utils/auth'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 const state: IUser = {
   token: getToken()
 }
@@ -22,6 +22,12 @@ const actions = {
     return new Promise((resolve) => {
       setToken(data.username)
       commit(SET_TOKEN, data.username)
+      resolve(data)
+    })
+  },
+  [USER_LOGOUT]({ commit }: { commit: Commit }, data: boolean) {
+    return new Promise((resolve) => {
+      removeToken()
       resolve(data)
     })
   }

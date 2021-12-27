@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-20 10:00:42
+ * @LastEditTime: 2021-12-27 10:35:40
  */
 import { IAsyncRoutes } from '@/interface/index'
 /**
@@ -20,23 +20,23 @@ export const asyncRoutes: IAsyncRoutes[] = [
   },
   {
     father: 'sys.blog',
-    identifier: 'article',
-    title: '文章管理',
+    identifier: 'nested',
+    title: '嵌套路由',
     type: 'menu',
-    url: '/article',
+    url: '/nested',
     icon: 'icon-dashboard',
     children: [
-      { father: 'article', identifier: 'list', title: '文章列表', type: 'menu', url: '/list', icon: 'icon-dashboard' },
+      { father: 'nested', identifier: 'menu1-1', title: '菜单1-1', type: 'menu', url: '/menu1-1', icon: 'icon-dashboard' },
       {
-        father: 'article',
-        identifier: 'type',
-        title: '文章类别',
+        father: 'nested',
+        identifier: 'menu1-2',
+        title: '菜单1-2',
         type: 'menu',
-        url: '/type',
+        url: '/menu1-2',
         icon: 'icon-dashboard',
         children: [
-          { father: 'type', identifier: 'list1', title: '文章列表1', type: 'menu', url: '/list1', icon: 'icon-dashboard' },
-          { father: 'type', identifier: 'type1', title: '文章类别1', type: 'menu', url: '/type1', icon: 'icon-dashboard' }
+          { father: 'menu1-2', identifier: 'menu1-2-1', title: '菜单1-2-1', type: 'menu', url: '/menu1-2-1', icon: 'icon-dashboard' },
+          { father: 'menu1-2', identifier: 'menu1-2-2', title: '菜单1-2-2', type: 'menu', url: '/menu1-2-2', icon: 'icon-dashboard' }
         ]
       }
     ]

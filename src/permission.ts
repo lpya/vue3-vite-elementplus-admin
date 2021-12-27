@@ -19,6 +19,7 @@ router.beforeEach(async (to, from, next) => {
   NProgress.start()
   //设置site标题
   document.title = getPageTitle(String(to.meta.title))
+  const toPath = to.path.replace('/', '')
   if (getToken()) {
     if (to.path === '/') {
       next()
@@ -36,7 +37,7 @@ router.beforeEach(async (to, from, next) => {
           message: 'Has Error',
           type: 'error'
         })
-        next(`/?redirect=${to.path}`)
+        next(`/?redirect=${toPath}`)
         NProgress.done()
       }
     }
@@ -44,7 +45,7 @@ router.beforeEach(async (to, from, next) => {
     if (whiteList.indexOf(to.path) !== -1) {
       next()
     } else {
-      next(`/?redirect=${to.path}`)
+      next(`/?redirect=${toPath}`)
       NProgress.done()
     }
   }
