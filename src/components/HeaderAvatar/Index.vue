@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-22 15:59:15
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-27 11:05:42
+ * @LastEditTime: 2021-12-27 15:17:31
 -->
 <template>
   <div class="header-avatar">
@@ -12,7 +12,7 @@
       <template #dropdown>
         <el-dropdown-menu>
           <a href="https://www.lpya.cn/" target="_blank"> <el-dropdown-item>个人中心</el-dropdown-item> </a>
-          <a href="https://lpya.github.io/vue3-vite-elementplus-admin/" target="_blank"> <el-dropdown-item>项目地址</el-dropdown-item></a>
+          <a href="https://github.com/lpya/vue3-vite-elementplus-admin" target="_blank"> <el-dropdown-item>项目地址</el-dropdown-item></a>
           <el-dropdown-item divided @click="logout">退出登陆</el-dropdown-item>
         </el-dropdown-menu>
       </template>

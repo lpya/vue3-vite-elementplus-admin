@@ -15,17 +15,6 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'vue/camelcase': 'error',
     '@typescript-eslint/no-unused-vars': ['warn'],
-    // 'vue/max-attributes-per-line': [
-    //   'error',
-    //   {
-    //     singleline: {
-    //       max: 3
-    //     },
-    //     multiline: {
-    //       max: 1
-    //     }
-    //   }
-    // ],
     '@typescript-eslint/no-inferrable-types': 'off'
   },
   overrides: [
