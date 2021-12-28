@@ -35,12 +35,18 @@ export interface IPermission {
 }
 
 /**
- * 主题颜色
+ * 主题颜色、字体
  */
 export interface ITheme {
   styles: IThemeStyles
 }
 export interface IThemeStyles {
-  menuBg: string
-  test: string
+  sidebarBg: string //侧边栏背景颜色
+  headerBg: string //头部背景颜色
+  mainBg: string //主体内容背景颜色
+  menuBg: string //菜单栏背景颜色
+  menuTextColor: string //菜单栏字体颜色
+  menuTextActiveColor: string //菜单栏选中字体颜色
+  subMenuBg: string //子菜单栏背景颜色
+  subMenuHover: string //子菜单栏悬浮颜色
 }

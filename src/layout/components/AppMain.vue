@@ -9,17 +9,10 @@
     </router-view>
   </div>
 </template>
-<script lang="ts" setup>
-const color = 'red'
-</script>
 <style lang="scss" scoped>
-.text {
-  color: v-bind(color);
-}
 .app-main {
   height: calc(100vh - 51px);
   width: 100%;
-  background: #f0f2f5;
   overflow: hidden;
 }
 .fade-leave-active,
