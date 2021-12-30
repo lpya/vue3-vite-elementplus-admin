@@ -32,6 +32,9 @@ const test = () => {
     .el-sub-menu {
       .el-menu {
         background: v-bind(subMenuBg);
+        .el-menu-item.is-active {
+          background: v-bind(subMenuHover);
+        }
         li:hover {
           background: v-bind(subMenuHover);
         }

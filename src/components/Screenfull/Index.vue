@@ -3,14 +3,14 @@
  * @Author: hutu
  * @Date: 2021-12-22 15:24:13
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-27 09:53:16
+ * @LastEditTime: 2021-12-30 08:55:20
 -->
 <template>
-  <div class="screenfull" @click="handleScreenfull">
-    <el-tooltip class="item" effect="dark" :content="state.isScreenfull ? '退出全屏' : '全屏'" placement="bottom">
+  <el-tooltip class="item" effect="dark" :content="state.isScreenfull ? '退出全屏' : '全屏'" placement="bottom">
+    <div class="screenfull" @click="handleScreenfull">
       <el-icon class="iconfont icon-fullscreen" :class="state.isScreenfull ? 'icon-fullscreen-exit' : 'icon-fullscreen'"></el-icon>
-    </el-tooltip>
-  </div>
+    </div>
+  </el-tooltip>
 </template>
 <script lang="ts" setup>
 import screenfull from 'screenfull'

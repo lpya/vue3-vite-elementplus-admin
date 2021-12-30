@@ -1,4 +1,4 @@
-// $white: #fff;
+$white: #fff;
 // $baseBg: #f0f2f5;
 // $menuText: #bfcbd9;
 // $menuActiveText: #409eff;
@@ -14,7 +14,7 @@ $breadcrumbColor: #97a8be;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   &:hover {
     cursor: pointer;
@@ -22,5 +22,6 @@ $breadcrumbColor: #97a8be;
   }
   i {
     font-size: 20px;
+    color: #666;
   }
 }

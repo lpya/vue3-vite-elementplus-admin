@@ -3,11 +3,11 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-28 17:05:25
+ * @LastEditTime: 2021-12-30 14:38:55
 -->
 <template>
   <div class="layout">
-    <div class="layout-menu app-sidebar-bg" :style="{ width: menuCollapse ? '64px' : '210px' }">
+    <div class="layout-menu app-sidebar-bg" :style="{ minWidth: menuCollapse ? '64px' : '210px' }">
       <Sidebar :list="accessRoutes" :route="route.path" :collapse="menuCollapse" />
     </div>
     <div class="layout-main">

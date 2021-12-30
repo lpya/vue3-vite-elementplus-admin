@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-22 14:53:31
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-22 16:00:57
+ * @LastEditTime: 2021-12-30 08:46:09
 -->
 <template>
   <div class="hamburger" @click="emitMenuCollapse">
@@ -11,7 +11,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { defineEmits } from 'vue'
 const props = defineProps<{
   collapse: boolean
 }>()
