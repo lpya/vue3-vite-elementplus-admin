@@ -4,7 +4,7 @@
  * @return {*}
  */
 export function getPageTitle(pageTitle: string): string {
-  const title = process.env.VUE_APP_SITE_NAME || 'Vue3-Element-Admin'
+  const title = import.meta.env.VITE_SITE_NAME || 'Vue3-Element-Admin'
   if (pageTitle) {
     return `${pageTitle} - ${title}`
   }
