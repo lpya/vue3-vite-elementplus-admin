@@ -3,13 +3,15 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-28 17:32:33
+ * @LastEditTime: 2022-01-06 17:37:47
 -->
 <template>
   <div class="sidebar">
-    <el-menu :background-color="styles.menuBg" :text-color="styles.menuTextColor" :active-text-color="styles.menuTextActiveColor" :default-active="props.route" mode="vertical" :collapse="props.collapse" :router="true">
-      <SidebarItem :list="props.list" :isFirst="true" />
-    </el-menu>
+    <el-scrollbar wrap-class="scrollbar-wrapper">
+      <el-menu :background-color="styles.menuBg" :text-color="styles.menuTextColor" :active-text-color="styles.menuTextActiveColor" :default-active="props.route" mode="vertical" :collapse="props.collapse" :router="true">
+        <SidebarItem :list="props.list" :isFirst="true" />
+      </el-menu>
+    </el-scrollbar>
   </div>
 </template>
 
