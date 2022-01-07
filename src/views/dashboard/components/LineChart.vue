@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-06 14:51:10
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-06 17:33:33
+ * @LastEditTime: 2022-01-07 08:35:56
 -->
 <template>
   <div style="height: 360px; padding: 20px">
@@ -68,14 +68,14 @@ const initLineChart = () => {
   lchart.setOption(option)
   chart.value = lchart
 }
-onActivated(() => {
+onMounted(() => {
   mounted()
   nextTick(() => {
     initLineChart()
   })
 })
 
-onDeactivated(() => {
+onBeforeUnmount(() => {
   beforeDestroy()
 })
 

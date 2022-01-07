@@ -1,13 +1,13 @@
 <template>
   <div class="dashboard">
     <PanelGroup :list="state.panelList" />
-    <!-- <el-row :gutter="32">
+    <el-row>
       <el-col :xs="24" :sm="24" :lg="24">
         <div class="chart-wrapper">
           <LineChart />
         </div>
       </el-col>
-    </el-row> -->
+    </el-row>
     <div style="height: 1800px"></div>
   </div>
 </template>
@@ -30,10 +30,11 @@ const state = reactive({
 </script>
 <style lang="scss">
 .dashboard {
-  // overflow: hidden;
-  height: calc(100vh - 51px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  // height: calc(100vh - 51px);
   // height: 1600px;
+  height: 100%;
   padding: 0 20px;
-  overflow: auto;
 }
 </style>

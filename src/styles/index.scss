@@ -1,43 +1,54 @@
-@import "./sidebar.scss";
+@import './sidebar.scss';
+
 * {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 #app {
-    font-size: 14px;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+
+  .layout {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .sidebar-container {
+      position: fixed;
+      height: 100%;
+      top: 0px;
+      z-index: 1001;
+      overflow: hidden;
+      transition: width 0.28s;
+      -moz-transition: width 0.28s;
+      -webkit-transition: width 0.28s;
+      -o-transition: width 0.28s;
+    }
+    .main-container {
+      transition: margin-left 0.28s;
+      -moz-transition: margin-left 0.28s;
+      -webkit-transition: margin-left 0.28s;
+      -o-transition: margin-left 0.28s;
+    }
+  }
+  .openSidebar {
+    .sidebar-container {
+      width: 210px !important;
+    }
+    .main-container {
+      margin-left: 210px;
+    }
+  }
+  .hideSidebar {
+    .sidebar-container {
+      width: 64px !important;
+    }
+    .main-container {
+      margin-left: 64px;
+    }
+  }
 }
-
-// // 自定义滚动条
-// ::-webkit-scrollbar {
-//     width: 6px;
-//     /*滚动条宽度*/
-//     height: 6px;
-//     /*滚动条高度*/
-//     transform: translateX(-50px);
-// }
-
-// /*定义滚动条轨道 */
-// ::-webkit-scrollbar-track {
-//     background-color: transparent;
-//     /*滚动条的背景颜色*/
-// }
-
-// /*定义滑块 */
-// ::-webkit-scrollbar-thumb {
-//     cursor: pointer;
-//     background-color: #d2e0ed;
-//     border-radius: 2px;
-//     /*滚动条的背景颜色*/
-// }
-
-// ::-webkit-scrollbar-thumb:hover {
-//     background-color: #d2e0ed;
-//     /*滚动条的背景颜色*/
-// }
-// ::-webkit-scrollbar-thumb:active {
-//     background-color: #d2e0ed;
-//     /*滚动条的背景颜色*/
-// }
