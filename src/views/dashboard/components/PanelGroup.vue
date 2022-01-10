@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-06 09:26:04
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-06 14:32:37
+ * @LastEditTime: 2022-01-10 09:20:09
 -->
 <template>
   <el-row :gutter="20" class="panel-group">
@@ -16,7 +16,7 @@
           <div class="card-panel-num">{{ item.num }}</div>
           <div class="card-panel-text">
             <div class="card-panel-title">{{ item.title }}</div>
-            <div>
+            <div class="card-panel-percent">
               <span style="padding-right: 8px">较昨天</span>
               <span style="color: red" v-if="item.percent > 0"><el-icon class="iconfont icon-caret-up"></el-icon> {{ item.percent * 100 }}%</span>
               <span style="color: green" v-else-if="item.percent < 0"><el-icon class="iconfont icon-caret-down"></el-icon> {{ item.percent * 100 }}%</span>
@@ -42,7 +42,7 @@ const prop = defineProps<{
 </script>
 <style lang="scss" scoped>
 .panel-group {
-  padding: 20px 0;
+  padding: 20px 0 5px;
   .card-panel-col {
     margin-bottom: 15px;
     .card-panel {
@@ -80,6 +80,13 @@ const prop = defineProps<{
           font-size: 12px;
         }
       }
+    }
+  }
+}
+@media screen and(max-width: 850px) {
+  .panel-group {
+    .card-panel-percent {
+      display: none;
     }
   }
 }

@@ -10,7 +10,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      views: path.resolve(__dirname, 'src/views')
+      views: path.resolve(__dirname, 'src/views'),
+      interface: path.resolve(__dirname, 'src/interface')
     }
   },
   css: {

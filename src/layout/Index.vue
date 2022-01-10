@@ -9,10 +9,10 @@
   <div class="layout" :class="menuCollapse ? 'hideSidebar' : 'openSidebar'">
     <Sidebar class="sidebar-container app-sidebar-bg" :list="accessRoutes" :route="route.path" :collapse="menuCollapse" />
     <div class="main-container">
-      <div class="layout-header app-header-bg">
+      <div class="main-container-header app-header-bg">
         <Navbar />
       </div>
-      <div class="layout-content app-main-bg">
+      <div class="main-container-content app-main-bg">
         <AppMain />
       </div>
     </div>

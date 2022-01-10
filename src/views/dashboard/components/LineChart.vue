@@ -1,154 +1,79 @@
 <!--
- * @Description: 线报表
+ * @Description: 用户访问量统计
  * @Author: hutu
  * @Date: 2022-01-06 14:51:10
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-07 08:35:56
+ * @LastEditTime: 2022-01-10 16:51:04
 -->
 <template>
-  <div style="height: 360px; padding: 20px">
-    <div id="object-line" style="height: 264px; width: 100%"></div>
+  <div class="line-chart">
+    <EchartInit id="visitsNum" width="100%" height="400px" :option="state.option" />
   </div>
 </template>
-
 <script lang="ts" setup>
-import * as echarts from 'echarts'
-import { nextTick, onBeforeUnmount, onMounted, ref, onActivated, onDeactivated } from 'vue'
-import elementResizeDetectorMaker from 'element-resize-detector'
-import { debounce } from 'throttle-debounce'
+import EchartInit from '@/components/EchartInit/Index.vue'
+import { IEchartsOption } from '@/interface'
 
-const chart = ref()
-let sidebarElm: any
-const erd = elementResizeDetectorMaker()
-const chartResizeHandler = debounce(100, false, () => {
-  console.log(1)
-  if (chart.value) {
-    chart.value.resize()
-  }
-})
-const sidebarResizeHandler = () => {
-  nextTick(() => {
-    chartResizeHandler()
-  })
-}
-const initResizeEvent = () => {
-  window.addEventListener('resize', chartResizeHandler)
-}
-
-const destroyResizeEvent = () => {
-  window.removeEventListener('resize', chartResizeHandler)
-}
-const initSidebarResizeEvent = () => {
-  sidebarElm = document.getElementsByClassName('sidebar-container')[0]
-  if (sidebarElm) {
-    erd.listenTo(sidebarElm, sidebarResizeHandler)
-  }
-}
-const handleTest = (e: any) => {
-  console.log(e, 'aa')
-}
-const destroySidebarResizeEvent = () => {
-  if (sidebarElm) {
-    erd.removeListener(sidebarElm, handleTest)
-  }
-}
-const mounted = () => {
-  initResizeEvent()
-  initSidebarResizeEvent()
-}
-const beforeDestroy = () => {
-  destroyResizeEvent()
-  destroySidebarResizeEvent()
-}
-// import { mounted, beforeDestroy, chart } from './resize'
-// console.log(chart)
-// // const chart = ref()
-const initLineChart = () => {
-  const lchart = echarts.init(document.getElementById('object-line') as HTMLElement)
-  lchart.setOption(option)
-  chart.value = lchart
-}
-onMounted(() => {
-  mounted()
-  nextTick(() => {
-    initLineChart()
-  })
-})
-
-onBeforeUnmount(() => {
-  beforeDestroy()
-})
-
-const option = {
-  xAxis: {
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    boundaryGap: false,
-    axisTick: {
-      show: false
-    }
-  },
-  grid: {
-    left: 10,
-    right: 10,
-    bottom: 20,
-    top: 30,
-    containLabel: true
-  },
-  tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'cross'
+import { reactive } from 'vue'
+const state = reactive({
+  option: {
+    title: {
+      text: '用户访问量统计'
     },
-    padding: [5, 10]
-  },
-  yAxis: {
-    axisTick: {
-      show: false
-    }
-  },
-  legend: {
-    data: ['expected', 'actual']
-  },
-  series: [
-    {
-      name: 'expected',
-      itemStyle: {
-        normal: {
-          color: '#FF005A',
-          lineStyle: {
-            color: '#FF005A',
-            width: 2
-          }
-        }
-      },
-      smooth: true,
-      type: 'line',
-      data: [100, 120, 161, 134, 105, 160, 165],
-      animationDuration: 2800,
-      animationEasing: 'cubicInOut'
+    xAxis: {
+      data: ['1月3日', '1月4日', '1月5日', '1月6日', '1月7日', '1月8日', '1月9日'],
+      boundaryGap: false,
+      axisTick: {
+        show: false
+      }
     },
-    {
-      name: 'actual',
-      smooth: true,
-      type: 'line',
-      itemStyle: {
-        normal: {
-          color: '#3888fa',
-          lineStyle: {
-            color: '#3888fa',
-            width: 2
-          },
-          areaStyle: {
-            color: '#f3f8ff'
-          }
-        }
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    tooltip: {
+      trigger: 'axis'
+    },
+    yAxis: {},
+    legend: {
+      data: ['注册用户', '访客量', 'IP数', '阅读量']
+    },
+    series: [
+      {
+        name: '注册用户',
+        smooth: true,
+        type: 'line',
+        data: [1, 2, 1, 3, 5, 1, 6]
       },
-      data: [120, 82, 91, 154, 162, 140, 145],
-      animationDuration: 2800,
-      animationEasing: 'quadraticOut'
-    }
-  ]
-}
+      {
+        name: '访客量',
+        smooth: true,
+        type: 'line',
+        data: [112, 54, 15, 77, 102, 22, 30]
+      },
+      {
+        name: 'IP数',
+        smooth: true,
+        type: 'line',
+        data: [99, 34, 5, 34, 44, 2, 16]
+      },
+      {
+        name: '阅读量',
+        smooth: true,
+        type: 'line',
+        data: [52, 154, 85, 177, 142, 132, 150]
+      }
+    ]
+  } as IEchartsOption
+})
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.line-chart {
+  background: $white;
+  padding: 30px 20px;
+  border-radius: 4px;
+}
+</style>

@@ -8,12 +8,11 @@
         </div>
       </el-col>
     </el-row>
-    <div style="height: 1800px"></div>
   </div>
 </template>
 <script lang="ts" setup>
-import PanelGroup from './components/PanelGroup.vue'
 import LineChart from './components/LineChart.vue'
+import PanelGroup from './components/PanelGroup.vue'
 import { reactive } from 'vue'
 const state = reactive({
   panelList: [
@@ -32,8 +31,6 @@ const state = reactive({
 .dashboard {
   overflow-y: auto;
   overflow-x: hidden;
-  // height: calc(100vh - 51px);
-  // height: 1600px;
   height: 100%;
   padding: 0 20px;
 }
