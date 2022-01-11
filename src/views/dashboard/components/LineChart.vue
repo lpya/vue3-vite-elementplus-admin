@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-06 14:51:10
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-10 16:51:04
+ * @LastEditTime: 2022-01-11 08:52:15
 -->
 <template>
   <div class="line-chart">
@@ -38,7 +38,7 @@ const state = reactive({
     },
     yAxis: {},
     legend: {
-      data: ['注册用户', '访客量', 'IP数', '阅读量']
+      data: ['注册用户', '访客量', '访问量', 'IP数']
     },
     series: [
       {
@@ -54,16 +54,16 @@ const state = reactive({
         data: [112, 54, 15, 77, 102, 22, 30]
       },
       {
+        name: '访问量',
+        smooth: true,
+        type: 'line',
+        data: [52, 154, 85, 177, 142, 132, 150]
+      },
+      {
         name: 'IP数',
         smooth: true,
         type: 'line',
         data: [99, 34, 5, 34, 44, 2, 16]
-      },
-      {
-        name: '阅读量',
-        smooth: true,
-        type: 'line',
-        data: [52, 154, 85, 177, 142, 132, 150]
       }
     ]
   } as IEchartsOption
@@ -75,5 +75,6 @@ const state = reactive({
   background: $white;
   padding: 30px 20px;
   border-radius: 4px;
+  overflow: hidden;
 }
 </style>

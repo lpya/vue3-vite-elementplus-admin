@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-30 10:32:19
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-10 16:48:23
+ * @LastEditTime: 2022-01-11 08:50:29
 -->
 <template>
   <div :id="prop.id" :style="{ width: prop.width, height: prop.height }"></div>
@@ -19,7 +19,6 @@ echarts.use([BarChart, LineChart, PieChart, TitleComponent, TooltipComponent, To
 
 import { ref, onMounted, onBeforeUnmount, onActivated, onDeactivated } from 'vue'
 import { debounce } from 'throttle-debounce'
-import elementResizeDetectorMaker from 'element-resize-detector'
 
 const prop = defineProps<{
   id: string
@@ -40,11 +39,11 @@ const initChart = () => {
 /**
  * @desc: 监听窗口变化重置图表
  */
-const chartResizeHandler = debounce(200, false, () => {
+const chartResizeHandler = debounce(100, false, () => {
   if (chart.value) {
     chart.value.resize({
       animation: {
-        duration: 300
+        duration: 200
       }
     })
   }
@@ -61,25 +60,22 @@ const initResizeEvent = () => {
 const destroyResizeEvent = () => {
   window.addEventListener('resize', chartResizeHandler)
 }
+
 /**
  * @desc: 添加监听侧边栏变化事件
  */
 let sidebarElm: HTMLElement
-const erd = elementResizeDetectorMaker()
 const initSidebarResizeEvent = () => {
   sidebarElm = document.getElementsByClassName('sidebar-container')[0] as HTMLElement
-  if (sidebarElm) {
-    erd.listenTo(sidebarElm, chartResizeHandler)
-  }
+  sidebarElm && sidebarElm.addEventListener('transitionend', chartResizeHandler)
 }
 /**
  * @desc: 移除监听侧边栏变化事件
  */
 const destroySidebarResizeEvent = () => {
-  if (sidebarElm) {
-    erd.removeListener(sidebarElm, chartResizeHandler)
-  }
+  sidebarElm && sidebarElm.removeEventListener('transitionend', chartResizeHandler)
 }
+
 const mounted = () => {
   initChart()
   initResizeEvent()
@@ -88,9 +84,6 @@ const mounted = () => {
 const beforeDestroy = () => {
   destroyResizeEvent()
   destroySidebarResizeEvent()
-  if (chart.value) {
-    chart.value.dispose()
-  }
 }
 
 let firstFlag = false //首次渲染

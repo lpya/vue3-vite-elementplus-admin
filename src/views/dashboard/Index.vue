@@ -3,15 +3,33 @@
     <PanelGroup :list="state.panelList" />
     <el-row>
       <el-col :xs="24" :sm="24" :lg="24">
+        <LineChart />
+      </el-col>
+    </el-row>
+    <el-row :gutter="25">
+      <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
-          <LineChart />
+          <BarChart />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <PieChart />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <TestChart />
         </div>
       </el-col>
     </el-row>
   </div>
 </template>
 <script lang="ts" setup>
+import TestChart from './components/TestChart.vue'
 import LineChart from './components/LineChart.vue'
+import BarChart from './components/BarChart.vue'
+import PieChart from './components/PieChart.vue'
 import PanelGroup from './components/PanelGroup.vue'
 import { reactive } from 'vue'
 const state = reactive({
@@ -33,5 +51,8 @@ const state = reactive({
   overflow-x: hidden;
   height: 100%;
   padding: 0 20px;
+  .chart-wrapper {
+    margin: 20px 0 0;
+  }
 }
 </style>

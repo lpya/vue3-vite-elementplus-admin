@@ -3,10 +3,10 @@
  * @Author: hutu
  * @Date: 2022-01-06 09:26:04
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-10 09:20:09
+ * @LastEditTime: 2022-01-11 08:58:58
 -->
 <template>
-  <el-row :gutter="20" class="panel-group">
+  <el-row :gutter="32" class="panel-group">
     <el-col v-for="(item, key) in prop.list" :key="key" :xs="12" :sm="12" :lg="6" class="card-panel-col">
       <div class="card-panel">
         <div class="card-panel-icon">
@@ -42,9 +42,9 @@ const prop = defineProps<{
 </script>
 <style lang="scss" scoped>
 .panel-group {
-  padding: 20px 0 5px;
+  padding: 20px 0 0px;
   .card-panel-col {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     .card-panel {
       display: flex;
       height: 110px;
