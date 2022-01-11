@@ -39,6 +39,8 @@
 │   ├── permission.ts   # 权限管理
 │   └── App.vue         # 入口页面
 ├── index.html          # html模板
+├── .env.development    # 配置文件
+├── .env.production     # 配置文件
 ├── package.json        # package.json 
 ├── README.md           # README.md
 ├── tsconfig.json       # ts配置

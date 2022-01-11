@@ -1,6 +1,5 @@
 <template>
   <router-view></router-view>
-  <!-- <el-button @click="test">测试</el-button> -->
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue'
@@ -13,9 +12,6 @@ const headerBg = computed(() => store.state.theme.styles.headerBg)
 const mainBg = computed(() => store.state.theme.styles.mainBg)
 const subMenuBg = computed(() => store.state.theme.styles.subMenuBg)
 const subMenuHover = computed(() => store.state.theme.styles.subMenuHover)
-const test = () => {
-  store.commit('SET_TEST')
-}
 </script>
 <style lang="scss">
 #app {

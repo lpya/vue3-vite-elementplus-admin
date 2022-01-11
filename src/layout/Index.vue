@@ -3,18 +3,16 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-30 14:38:55
+ * @LastEditTime: 2022-01-07 08:45:25
 -->
 <template>
-  <div class="layout">
-    <div class="layout-menu app-sidebar-bg" :style="{ minWidth: menuCollapse ? '64px' : '210px' }">
-      <Sidebar :list="accessRoutes" :route="route.path" :collapse="menuCollapse" />
-    </div>
-    <div class="layout-main">
-      <div class="layout-header app-header-bg">
+  <div class="layout" :class="menuCollapse ? 'hideSidebar' : 'openSidebar'">
+    <Sidebar class="sidebar-container app-sidebar-bg" :list="accessRoutes" :route="route.path" :collapse="menuCollapse" />
+    <div class="main-container">
+      <div class="main-container-header app-header-bg">
         <Navbar />
       </div>
-      <div class="layout-content app-main-bg">
+      <div class="main-container-content app-main-bg">
         <AppMain />
       </div>
     </div>
@@ -35,20 +33,3 @@ const route = useRoute()
 const menuCollapse = computed(() => store.state.permission.menuCollapse)
 const accessRoutes = computed(() => store.state.permission.accessRoutes)
 </script>
-
-<style lang="scss">
-.layout {
-  display: flex;
-  .layout-menu {
-    transition: all 0.3s;
-    overflow: hidden;
-  }
-  .layout-main {
-    flex: 1;
-    .layout-header {
-      height: 50px;
-      border-bottom: 1px solid #eee;
-    }
-  }
-}
-</style>
