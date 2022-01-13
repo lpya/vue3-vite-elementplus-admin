@@ -15,7 +15,7 @@ import service from './request'
  * @param {Method} method 方法默认为POST
  * @return {*}
  */
-export function request(url: string, params: object, method: Method = 'POST') {
+export function request(url: string, params?: object, method: Method = 'POST') {
   return new Promise((resolve, reject) => {
     service(url, { method: method, data: params })
       .then((response) => {

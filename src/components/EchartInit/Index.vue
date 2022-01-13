@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-30 10:32:19
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-11 08:50:29
+ * @LastEditTime: 2022-01-11 09:39:24
 -->
 <template>
   <div :id="prop.id" :style="{ width: prop.width, height: prop.height }"></div>
@@ -84,6 +84,9 @@ const mounted = () => {
 const beforeDestroy = () => {
   destroyResizeEvent()
   destroySidebarResizeEvent()
+  if (chart.value) {
+    chart.value.dispose()
+  }
 }
 
 let firstFlag = false //首次渲染

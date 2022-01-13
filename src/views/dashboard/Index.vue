@@ -6,7 +6,7 @@
         <LineChart />
       </el-col>
     </el-row>
-    <el-row :gutter="25">
+    <el-row :gutter="25" style="margin-bottom: 20px">
       <el-col :xs="24" :sm="24" :lg="8">
         <div class="chart-wrapper">
           <BarChart />
