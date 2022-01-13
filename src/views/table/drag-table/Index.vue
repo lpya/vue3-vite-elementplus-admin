@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-12 17:32:00
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-13 16:49:38
+ * @LastEditTime: 2022-01-13 16:52:14
 -->
 <template>
   <div class="drag-table">
@@ -61,6 +61,10 @@ const handleGetArticleList = async () => {
     newIndexArr.value = oldIndexArr
   }
 }
+
+/**
+ * @desc: 添加拖拽表格
+ */
 const initDrapTable = () => {
   const tbody = document.querySelectorAll('.drag-table .el-table__body-wrapper > table > tbody')[0] as unknown as HTMLElement
   Sortable.create(tbody, {
@@ -90,7 +94,6 @@ onMounted(() => {
 <style lang="scss">
 .drag-table {
   padding: 20px;
-  // height: calc(100vh - 91px);
   .container {
     padding: 20px;
     background: $white;
