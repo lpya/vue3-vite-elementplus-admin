@@ -61,3 +61,8 @@ import { BarSeriesOption, LineSeriesOption, PieSeriesOption } from 'echarts/char
 import { TitleComponentOption, TooltipComponentOption, GridComponentOption } from 'echarts/components'
 // 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
 export type IEchartsOption = echarts.ComposeOption<BarSeriesOption | LineSeriesOption | PieSeriesOption | TitleComponentOption | TooltipComponentOption | GridComponentOption>
+
+/**
+ * 字典
+ */
+export type IDictionary<T> = { [key: string]: T }

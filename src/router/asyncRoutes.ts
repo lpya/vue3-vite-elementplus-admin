@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-07 08:36:02
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-27 10:35:40
+ * @LastEditTime: 2022-01-12 17:36:02
  */
 import { IAsyncRoutes } from '@/interface/index'
 /**
@@ -39,6 +39,18 @@ export const asyncRoutes: IAsyncRoutes[] = [
           { father: 'menu1-2', identifier: 'menu1-2-2', title: '菜单1-2-2', type: 'menu', url: '/menu1-2-2', icon: 'icon-dashboard' }
         ]
       }
+    ]
+  },
+  {
+    father: 'sys.blog',
+    identifier: 'table',
+    title: 'Table',
+    type: 'menu',
+    url: '/table',
+    icon: 'icon-dashboard',
+    children: [
+      { father: 'table', identifier: 'drag-table', title: '拖拽表格', type: 'menu', url: '/drag-table', icon: 'icon-dashboard' },
+      { father: 'table', identifier: 'complex-table', title: '综合表格', type: 'menu', url: '/complex-table', icon: 'icon-dashboard' }
     ]
   },
   { father: 'sys.blog', identifier: 'attachment', title: '附件管理', type: 'menu', url: '/attachment', icon: 'icon-dashboard' }

@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-15 15:18:42
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-16 11:30:14
+ * @LastEditTime: 2022-01-13 08:30:56
  */
 import { Method } from 'axios'
 import service from './request'
@@ -15,7 +15,7 @@ import service from './request'
  * @param {Method} method 方法默认为POST
  * @return {*}
  */
-export function request(url: string, params: object, method: Method = 'POST') {
+export function request(url: string, params?: object, method: Method = 'POST') {
   return new Promise((resolve, reject) => {
     service(url, { method: method, data: params })
       .then((response) => {

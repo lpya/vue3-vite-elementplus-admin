@@ -26,6 +26,7 @@ app.use(ElScrollbar)
 
 import './permission'
 
+import './mock/index'
 app.use(router)
 app.use(store)
 app.mount('#app')
