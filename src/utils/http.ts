@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-15 15:18:42
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-13 08:30:56
+ * @LastEditTime: 2021-12-16 11:30:14
  */
 import { Method } from 'axios'
 import service from './request'

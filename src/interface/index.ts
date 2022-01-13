@@ -50,6 +50,37 @@ export interface IThemeStyles {
   subMenuBg: string //子菜单栏背景颜色
   subMenuHover: string //子菜单栏悬浮颜色
 }
+export interface IPromise {
+  code: number
+  data: {
+    items?: []
+    total: number
+  }
+  message: string
+}
+/**
+ * 文章列表
+ */
+export interface IArticleList {
+  id: number
+  title: string
+  author: string
+  type: string
+  status: string
+  pageviews: number
+  created_at: string
+}
+/**
+ * 文章列表查询
+ */
+export interface IArticleListQuery {
+  type: string
+  title: string
+  page?: number
+  limit?: number
+  sort: string
+}
+
 /**
  * 引入echarts
  */

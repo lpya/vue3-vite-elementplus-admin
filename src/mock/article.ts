@@ -3,27 +3,11 @@
  * @Author: hutu
  * @Date: 2022-01-12 09:29:52
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-12 17:22:43
+ * @LastEditTime: 2022-01-13 10:06:00
  */
 import * as Mock from 'mockjs'
+import { IArticleList, IArticleListQuery } from '@/interface'
 
-interface IArticleList {
-  id: number
-  title: string
-  author: string
-  type: string
-  status: string
-  pageviews: number
-  created_at: string
-}
-
-interface IArticleListQuery {
-  type: string
-  title: string
-  page?: number
-  limit?: number
-  sort: string
-}
 const List: IArticleList[] = []
 const count = 100
 for (let i = 0; i < count; i++) {
@@ -44,8 +28,8 @@ export const article = [
   {
     url: '/api/article/list',
     type: 'get',
-    response: (config: { query: IArticleListQuery }) => {
-      const { type, title, page = 1, limit = 20, sort } = config.query
+    response: (config: { body: IArticleListQuery }) => {
+      const { type, title, page = 1, limit = 20, sort } = config.body
       let mockList = List.filter((item) => {
         if (type && item.type !== type) return false
         if (title && item.title.indexOf(title) < 0) return false
@@ -57,7 +41,7 @@ export const article = [
       }
       const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
       return {
-        code: 20000,
+        code: 10000,
         data: {
           total: mockList.length,
           items: pageList
