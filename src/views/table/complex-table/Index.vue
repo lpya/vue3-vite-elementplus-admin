@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-12 17:32:00
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 10:08:57
+ * @LastEditTime: 2022-01-17 10:19:11
 -->
 <template>
   <div class="complex-table">
@@ -33,13 +33,13 @@
       <div class="complex-content">
         <el-table class="complex-content-table" v-loading="loading" :data="article" @selection-change="handleSelectionChange" :stripe="true" height="calc(100vh - 250px)">
           <el-table-column type="selection" width="55" align="center"></el-table-column>
-          <el-table-column prop="id" label="文章ID" width="100" align="center"></el-table-column>
-          <el-table-column prop="created_at" label="创建时间" width="250" align="center"></el-table-column>
+          <el-table-column prop="id" label="文章ID" width="80" align="center"></el-table-column>
+          <el-table-column prop="created_at" label="创建时间" width="200" align="center"></el-table-column>
           <el-table-column prop="title" label="标题" align="center"></el-table-column>
-          <el-table-column prop="author" label="作者" width="200" align="center"></el-table-column>
-          <el-table-column prop="pageviews" label="阅读量" width="150" align="center"></el-table-column>
-          <el-table-column prop="type" label="类别" width="150" align="center"></el-table-column>
-          <el-table-column prop="status" label="状态" width="150" align="center">
+          <el-table-column prop="author" label="作者" width="100" align="center"></el-table-column>
+          <el-table-column prop="pageviews" label="阅读量" width="100" align="center"></el-table-column>
+          <el-table-column prop="type" label="类别" width="100" align="center"></el-table-column>
+          <el-table-column prop="status" label="状态" width="100" align="center">
             <template #default="scope">
               <el-tag :type="scope.row.status === 'published' ? 'success' : 'info'">{{ scope.row.status }}</el-tag>
             </template>
