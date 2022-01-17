@@ -13,7 +13,7 @@ const state: ITheme = {
   }
 }
 const mutations = {
-  SET_TEST: (state: ITheme, flag: boolean): void => {
+  SET_TEST: (state: ITheme, flag: boolean) => {
     state.styles.menuTextColor = 'red'
   }
 }

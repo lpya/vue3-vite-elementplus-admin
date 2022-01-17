@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-21 16:57:25
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-24 17:26:54
+ * @LastEditTime: 2022-01-17 15:52:39
  */
 import { IAsyncRoutes, IPermission } from '@/interface'
 import { SET_ROUTES, GENERATE_ROUTES, SET_MENU_COLLAPSE } from '../type'
@@ -19,11 +19,11 @@ const state: IPermission = {
 }
 const mutations = {
   //设置路由
-  [SET_ROUTES]: (state: IPermission, routes: RouteRecordRaw[]): void => {
+  [SET_ROUTES]: (state: IPermission, routes: RouteRecordRaw[]) => {
     state.accessRoutes = routes
   },
   //设置侧边栏折叠、展开
-  [SET_MENU_COLLAPSE]: (state: IPermission, flag: boolean): void => {
+  [SET_MENU_COLLAPSE]: (state: IPermission, flag: boolean) => {
     state.menuCollapse = flag
   }
 }

@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-22 14:53:31
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-30 08:46:09
+ * @LastEditTime: 2022-01-17 15:53:02
 -->
 <template>
   <div class="hamburger" @click="emitMenuCollapse">
@@ -15,7 +15,7 @@ const props = defineProps<{
   collapse: boolean
 }>()
 const emit = defineEmits(['emitMenuCollapse'])
-const emitMenuCollapse = (): void => {
+const emitMenuCollapse = () => {
   emit('emitMenuCollapse', !props.collapse)
 }
 </script>

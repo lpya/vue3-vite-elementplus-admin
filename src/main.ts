@@ -6,7 +6,7 @@ import '@/styles/index.scss' //全局样式
 import '@/assets/iconfont/iconfont.scss'
 const app = createApp(App)
 
-import { ElDialog, ElConfigProvider, ElPagination, ElLoading, ElTag, ElButton, ElMenu, ElIcon, ElBreadcrumb, ElBreadcrumbItem, ElInput, ElForm, ElFormItem, ElTooltip, ElDropdown, ElDropdownItem, ElDropdownMenu, ElRow, ElCol, ElScrollbar, ElTable, ElTableColumn } from 'element-plus'
+import { ElDrawer, ElColorPicker, ElDialog, ElConfigProvider, ElPagination, ElLoading, ElTag, ElButton, ElMenu, ElIcon, ElBreadcrumb, ElBreadcrumbItem, ElInput, ElForm, ElFormItem, ElTooltip, ElDropdown, ElDropdownItem, ElDropdownMenu, ElRow, ElCol, ElScrollbar, ElTable, ElTableColumn } from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
 app.use(ElButton)
 app.use(ElMenu)
@@ -30,6 +30,8 @@ app.use(ElLoading)
 app.use(ElPagination)
 app.use(ElConfigProvider)
 app.use(ElDialog)
+app.use(ElColorPicker)
+app.use(ElDrawer)
 import './permission'
 
 import './mock/index'

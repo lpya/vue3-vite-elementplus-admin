@@ -3,13 +3,13 @@
  * @Author: hutu
  * @Date: 2021-12-13 08:41:23
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-21 17:12:21
+ * @LastEditTime: 2022-01-17 10:50:56
 -->
 <template>
   <div class="breadcrumb">
     <el-breadcrumb separator="/">
       <transition-group name="breadcrumb">
-        <el-breadcrumb-item v-for="(item, key) in state.leveList" :key="key" :to="{ path: item.path }">{{ item.title }}</el-breadcrumb-item>
+        <el-breadcrumb-item v-for="(item, key) in state.leveList" :key="key" :to="{ path: key === 1 ? '' : item.path }">{{ item.title }}</el-breadcrumb-item>
       </transition-group>
     </el-breadcrumb>
   </div>

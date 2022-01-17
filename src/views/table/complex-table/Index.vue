@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-12 17:32:00
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 10:19:11
+ * @LastEditTime: 2022-01-17 10:37:41
 -->
 <template>
   <div class="complex-table">
@@ -53,7 +53,7 @@
           </el-table-column>
         </el-table>
         <div class="complex-content-paging">
-          <el-pagination background :page-size="pageSize" :page-sizes="[15, 30, 45, 60]" layout="sizes, prev, pager, next" :total="100" @size-change="handleSizeChange" @current-change="handleCurrentChange"></el-pagination>
+          <el-pagination background v-model:currentPage="currentPage" :page-size="pageSize" :page-sizes="[15, 30, 45, 60]" layout="sizes, prev, pager, next" :total="100" @size-change="handleSizeChange" @current-change="handleCurrentChange"></el-pagination>
         </div>
       </div>
     </div>
