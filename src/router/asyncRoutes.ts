@@ -1,10 +1,11 @@
 /*
- * @Descripttion:
+ * @Description:模拟动态路由
  * @Author: hutu
- * @Date: 2021-12-07 08:36:02
+ * @Date: 2022-01-13 16:57:13
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-13 09:04:03
+ * @LastEditTime: 2022-01-17 14:43:02
  */
+
 import { IAsyncRoutes } from '@/interface/index'
 /**
  * 模拟请求后的路由数据
@@ -39,6 +40,18 @@ export const asyncRoutes: IAsyncRoutes[] = [
           { father: 'menu1-2', identifier: 'menu1-2-2', title: '菜单1-2-2', type: 'menu', url: '/menu1-2-2', icon: 'icon-align-left' }
         ]
       }
+    ]
+  },
+  {
+    father: 'sys.blog',
+    identifier: 'charts',
+    title: '图表',
+    type: 'menu',
+    url: '/charts',
+    icon: 'icon-signal-fill',
+    children: [
+      { father: 'charts', identifier: 'bar', title: '柱状图', type: 'menu', url: '/bar', icon: 'icon-signal-fill' },
+      { father: 'charts', identifier: 'line', title: '折线图', type: 'menu', url: '/line', icon: 'icon-signal-fill' }
     ]
   },
   {
