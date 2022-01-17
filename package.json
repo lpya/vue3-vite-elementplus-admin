@@ -1,6 +1,6 @@
 {
-  "name": "my-vue-app",
-  "version": "0.0.0",
+  "name": "vue3-vite-elementplus-admin",
+  "version": "1.0.2",
   "scripts": {
     "dev": "vite --mode development",
     "build": "vite build  --mode production",
