@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-12 09:29:52
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-13 10:06:00
+ * @LastEditTime: 2022-01-17 09:43:26
  */
 import * as Mock from 'mockjs'
 import { IArticleList, IArticleListQuery } from '@/interface'
@@ -17,6 +17,7 @@ for (let i = 0; i < count; i++) {
       title: '@title(5, 10)',
       author: '@first',
       'type|1': ['vue', 'Laravel', 'react', 'thinkphp'],
+      content: '@title(5, 10)',
       'status|1': ['published', 'draft'],
       pageviews: '@integer(300, 5000)',
       created_at: '@datetime'
