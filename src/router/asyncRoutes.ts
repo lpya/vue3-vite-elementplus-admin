@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-13 16:57:13
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 14:43:02
+ * @LastEditTime: 2022-01-17 14:58:26
  */
 
 import { IAsyncRoutes } from '@/interface/index'
@@ -66,5 +66,5 @@ export const asyncRoutes: IAsyncRoutes[] = [
       { father: 'table', identifier: 'complex-table', title: '综合表格', type: 'menu', url: '/complex-table', icon: 'icon-table' }
     ]
   },
-  { father: 'sys.blog', identifier: 'attachment', title: '附件管理', type: 'menu', url: '/attachment', icon: 'icon-folder' }
+  { father: 'sys.blog', identifier: 'theme', title: '换肤', type: 'menu', url: '/theme', icon: 'icon-skin-fill' }
 ]

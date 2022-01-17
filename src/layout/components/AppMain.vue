@@ -13,7 +13,6 @@
 .app-main {
   height: calc(100vh - 51px);
   width: 100%;
-  overflow: hidden;
 }
 .fade-leave-active,
 .fade-enter-active {

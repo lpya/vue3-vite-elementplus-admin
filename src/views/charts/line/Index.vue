@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-06 14:51:10
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 14:38:43
+ * @LastEditTime: 2022-01-17 15:59:49
 -->
 <template>
   <div class="line">
@@ -40,7 +40,7 @@ const state = reactive({
     },
     series: [
       {
-        name: '访客量',
+        name: '访问量',
         smooth: true,
         type: 'line',
         data: [112, 66, 105, 77, 102, 64, 30],
