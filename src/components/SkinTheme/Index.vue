@@ -3,10 +3,14 @@
  * @Author: hutu
  * @Date: 2022-01-17 15:36:50
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 15:40:17
+ * @LastEditTime: 2022-01-19 13:38:51
 -->
 <template>
   <div class="skin-theme">
+    <div class="theme-color">
+      <div class="theme-color-label">是否显示logo</div>
+      <div><el-switch v-model="styles.isLogo" /></div>
+    </div>
     <div class="theme-color">
       <div class="theme-color-label">头部背景颜色</div>
       <div><el-color-picker v-model="styles.headerBg" /></div>
@@ -36,8 +40,12 @@
       <div><el-color-picker v-model="styles.subMenuBg" /></div>
     </div>
     <div class="theme-color">
-      <div class="theme-color-label">子菜单栏悬浮颜色</div>
+      <div class="theme-color-label">子菜单栏悬浮背景颜色</div>
       <div><el-color-picker v-model="styles.subMenuHover" /></div>
+    </div>
+    <div class="theme-color">
+      <div class="theme-color-label">子菜单栏选中背景颜色</div>
+      <div><el-color-picker v-model="styles.subMenuActive" /></div>
     </div>
   </div>
 </template>

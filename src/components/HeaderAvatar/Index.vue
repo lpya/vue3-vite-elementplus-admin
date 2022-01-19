@@ -3,12 +3,12 @@
  * @Author: hutu
  * @Date: 2021-12-22 15:59:15
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-27 16:29:42
+ * @LastEditTime: 2022-01-19 08:55:35
 -->
 <template>
   <div class="header-avatar">
     <el-dropdown :hide-on-click="false" trigger="click">
-      <img src="@/assets/image/logo.png" alt="logo" />
+      <img src="@/assets/image/avatar.png" alt="logo" />
       <template #dropdown>
         <el-dropdown-menu>
           <a href="https://www.lpya.cn/" target="_blank"> <el-dropdown-item>个人中心</el-dropdown-item> </a>
