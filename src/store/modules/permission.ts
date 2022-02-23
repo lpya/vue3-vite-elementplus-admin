@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-21 16:57:25
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 15:52:39
+ * @LastEditTime: 2022-02-11 14:47:12
  */
 import { IAsyncRoutes, IPermission } from '@/interface'
 import { SET_ROUTES, GENERATE_ROUTES, SET_MENU_COLLAPSE } from '../type'

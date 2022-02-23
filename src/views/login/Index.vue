@@ -34,6 +34,7 @@ import { ElMessage } from 'element-plus'
 
 import { Values } from 'async-validator'
 import { validUsername } from '@/utils/validate'
+
 const store = useStore()
 const router = useRouter()
 const route = useRoute()

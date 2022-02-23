@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-12 17:32:00
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 10:21:02
+ * @LastEditTime: 2022-02-23 14:55:42
 -->
 <template>
   <div class="drag-table">
@@ -66,7 +66,7 @@ const handleGetArticleList = async () => {
  * @desc: 添加拖拽表格
  */
 const initDrapTable = () => {
-  const tbody = document.querySelectorAll('.drag-table .el-table__body-wrapper > table > tbody')[0] as unknown as HTMLElement
+  const tbody = document.querySelectorAll('.drag-table .el-table__body-wrapper table > tbody')[0] as unknown as HTMLElement
   Sortable.create(tbody, {
     animation: 100,
     onEnd(evt) {

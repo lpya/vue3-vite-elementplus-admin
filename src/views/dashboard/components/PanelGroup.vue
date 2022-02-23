@@ -62,6 +62,7 @@ const prop = defineProps<{
           padding: 15px;
           border-radius: 4px;
           color: #fff;
+          font-size: 30px;
         }
       }
       .card-panel-description {
