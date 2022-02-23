@@ -14,7 +14,7 @@
 
 ## 简介
 
-[vue3+vite+elemetnplus+admin](https://github.com/lpya/vue3-vite-elementplus-admin)是一个后台前端解决方案，它基于vue3和element-plus实现。它使用了最新的前端技术栈，内置了动态路由、权限验证等业务模型，后续会提供更多的功能组件...
+[vue3+vite+elemetnplus+admin](https://github.com/lpya/vue3-vite-elementplus-admin)是一个后台前端解决方案，它基于 vue3 和 element-plus 实现。它使用了最新的前端技术栈，内置了动态路由、权限验证等业务模型，后续会提供更多的功能组件...
 
 ## 目录结构
 
@@ -41,11 +41,12 @@
 ├── index.html          # html模板
 ├── .env.development    # 配置文件
 ├── .env.production     # 配置文件
-├── package.json        # package.json 
+├── package.json        # package.json
 ├── README.md           # README.md
 ├── tsconfig.json       # ts配置
 └── vite.config.ts      # vite配置
 ```
+
 ## 开发
 
 ```
@@ -62,6 +63,7 @@ npm install
 npm run dev
 
 ```
+
 ## 发布
 
 ```
@@ -70,6 +72,14 @@ npm run preview
 
 #打包发布
 npm run build
+```
+
+## 其他问题
+
+运行出现下面错误时，先把 App.vue template 里面内容注释掉再随便添加个 div，然后重新运行，该报错就不会出现了，好像更新了elementplus才出现的问题
+
+```
+Uncaught SyntaxError: The requested module '/node_modules/_dayjs@1.10.7@dayjs/dayjs.min.js' does not provide an export named 'default'
 ```
 
 ## 感谢
