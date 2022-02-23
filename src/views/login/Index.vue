@@ -30,7 +30,6 @@ import { reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import { USER_LOGIN } from '@/store/type'
-import { ElMessage } from 'element-plus'
 
 import { Values } from 'async-validator'
 import { validUsername } from '@/utils/validate'

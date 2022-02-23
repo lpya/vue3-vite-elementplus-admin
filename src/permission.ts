@@ -9,7 +9,6 @@ import { asyncRoutes } from '@/router/asyncRoutes'
 import store from '@/store'
 import { GENERATE_ROUTES } from '@/store/type'
 import { getToken } from '@/utils/auth'
-import { ElMessage } from 'element-plus'
 
 NProgress.configure({ showSpinner: false })
 const whiteList = ['/'] // no redirect whitelist

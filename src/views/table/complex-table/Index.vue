@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2022-01-12 17:32:00
  * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 10:37:41
+ * @LastEditTime: 2022-02-23 16:48:02
 -->
 <template>
   <div class="complex-table">
@@ -60,8 +60,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ElNotification, ElMessage } from 'element-plus'
-
 import { ref } from 'vue'
 import { getArticleList } from '@/api/article'
 import { IArticleList } from '@/interface'
