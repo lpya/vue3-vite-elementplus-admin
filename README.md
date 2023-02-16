@@ -73,23 +73,3 @@ npm run preview
 #打包发布
 npm run build
 ```
-
-## 其他问题
-
-运行出现下面错误时，先把 App.vue template 里面内容注释掉再随便添加个 div，然后重新运行，该报错就不会出现了，好像更新了elementplus才出现的问题
-
-```
-Uncaught SyntaxError: The requested module '/node_modules/_dayjs@1.10.7@dayjs/dayjs.min.js' does not provide an export named 'default'
-```
-
-## 感谢
-
-[vuejs [ vue ]](https://github.com/vuejs/vue)
-
-[vitejs [ vite ]](https://github.com/vitejs/vite)
-
-[element-plus [ element-plus ]](https://github.com/element-plus/element-plus)
-
-[PanJiaChen [ vue-element-admin ]](https://github.com/PanJiaChen/vue-element-admin)
-
-...
