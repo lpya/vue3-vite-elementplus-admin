@@ -1,10 +1,3 @@
-<!--
- * @Descripttion: 基础模板
- * @Author: hutu
- * @Date: 2021-12-07 08:36:02
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-07 08:45:25
--->
 <template>
   <div class="layout" :class="menuCollapse ? 'hideSidebar' : 'openSidebar'">
     <Sidebar class="sidebar-container app-sidebar-bg" :list="accessRoutes" :route="route.path" :collapse="menuCollapse" />

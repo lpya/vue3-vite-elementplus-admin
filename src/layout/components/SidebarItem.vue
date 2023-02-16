@@ -1,13 +1,6 @@
-<!--
- * @Descripttion: 侧边栏列表
- * @Author: hutu
- * @Date: 2021-12-07 08:36:02
- * @LastEditors: hutu
- * @LastEditTime: 2021-12-20 11:25:47
--->
 <template>
   <template v-for="item in props.list" :key="item.path">
-    <el-menu-item :index="item.path" v-if="verifyRouteChildren(item.children)">
+    <el-menu-item v-if="verifyRouteChildren(item.children)" :index="item.path">
       <el-icon v-if="props.isFirst" class="iconfont" :class="item.meta?.icon" />
       <template #title>
         <span>{{ item.meta?.title }}</span>

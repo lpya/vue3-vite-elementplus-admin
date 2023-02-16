@@ -1,36 +1,46 @@
-/*
- * @Description:初步封装axios
- * @Author: hutu
- * @Date: 2021-12-15 15:18:42
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-13 10:02:41
- */
-import axios from 'axios'
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
-const service = axios.create({
+const config: AxiosRequestConfig = {
   baseURL: '/',
-  timeout: 60000,
-  headers: {
-    'Content-Type': 'application/json;charset=utf-8'
-  }
-})
+  timeout: 60000
+}
 
-service.interceptors.request.use(
-  (config) => {
-    return config
-  },
-  (error) => {
-    return Promise.reject(error)
+class Http {
+  private static axiosInstance: AxiosInstance
+  constructor(config: AxiosRequestConfig) {
+    Http.axiosInstance = axios.create(config)
+    this.interceptorsRequest()
+    this.interceptorsResponse()
   }
-)
 
-service.interceptors.response.use(
-  (response) => {
-    return response
-  },
-  (error) => {
-    return Promise.reject(error)
+  //请求拦截器
+  private interceptorsRequest() {
+    Http.axiosInstance.interceptors.request.use(
+      (config: AxiosRequestConfig) => {
+        return config
+      },
+      (error: string) => {
+        return Promise.reject(error)
+      }
+    )
   }
-)
+  //响应拦截器
+  private interceptorsResponse() {
+    Http.axiosInstance.interceptors.response.use(
+      async (response) => {
+        return response
+      },
+      (error: string) => {
+        return Promise.reject(error)
+      }
+    )
+  }
+  get<T>(url: string, params?: object): Promise<AxiosResponse<T>> {
+    return Http.axiosInstance.get(url, { data: params })
+  }
+  post<T>(url: string, data?: object): Promise<AxiosResponse<T>> {
+    return Http.axiosInstance.post(url, data)
+  }
+}
 
-export default service
+export default new Http(config)

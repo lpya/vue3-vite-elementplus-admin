@@ -1,10 +1,3 @@
-<!--
- * @Description: 拖拽表格
- * @Author: hutu
- * @Date: 2022-01-12 17:32:00
- * @LastEditors: hutu
- * @LastEditTime: 2022-02-23 14:55:42
--->
 <template>
   <div class="drag-table">
     <div class="container">
@@ -39,32 +32,29 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted, nextTick } from 'vue'
-import { getArticleList } from '@/api/article'
-import { IArticleList } from '@/interface'
+import { ArticleApi } from '@/api/article'
 import Sortable from 'sortablejs'
-const article = ref<IArticleList[]>([])
+const article = ref<IArticle[]>([])
 let newIndexArr = ref<number[]>([])
 const oldIndexArr: number[] = []
 
-/**
- * @desc: 获取文章列表
- */
+onMounted(() => {
+  initDrapTable()
+})
 
-const handleGetArticleList = async () => {
-  const res = await getArticleList({ limit: 10 })
-  const { code, data } = res.data
-  if (code === 10000) {
-    article.value = data.items
+const getData = async () => {
+  const res = await ArticleApi.getArticle()
+  const { errcode, datas } = res
+  if (errcode === 0) {
+    article.value = datas.splice(0, 10)
     for (let i = 0, len = article.value.length; i < len; i++) {
       oldIndexArr.push(article.value[i].id)
     }
     newIndexArr.value = oldIndexArr
   }
 }
+getData()
 
-/**
- * @desc: 添加拖拽表格
- */
 const initDrapTable = () => {
   const tbody = document.querySelectorAll('.drag-table .el-table__body-wrapper table > tbody')[0] as unknown as HTMLElement
   Sortable.create(tbody, {
@@ -86,24 +76,24 @@ const initDrapTable = () => {
     }
   })
 }
-handleGetArticleList()
-onMounted(() => {
-  initDrapTable()
-})
 </script>
 <style lang="scss">
 .drag-table {
   height: 100%;
   padding: 20px;
   overflow: auto;
+
   .container {
     padding: 20px;
     background: $white;
   }
+
   .sort {
     padding: 20px 20px 0px;
+
     div {
       padding-bottom: 15px;
+
       span {
         padding-left: 10px;
       }

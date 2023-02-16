@@ -1,10 +1,3 @@
-<!--
- * @Description: 头部头像
- * @Author: hutu
- * @Date: 2021-12-22 15:59:15
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-19 08:55:35
--->
 <template>
   <div class="header-avatar">
     <el-dropdown :hide-on-click="false" trigger="click">

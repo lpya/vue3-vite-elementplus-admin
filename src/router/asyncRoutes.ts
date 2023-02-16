@@ -1,12 +1,3 @@
-/*
- * @Description:模拟动态路由
- * @Author: hutu
- * @Date: 2022-01-13 16:57:13
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 14:58:26
- */
-
-import { IAsyncRoutes } from '@/interface/index'
 /**
  * 模拟请求后的路由数据
  */

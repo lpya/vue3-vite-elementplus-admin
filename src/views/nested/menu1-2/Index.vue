@@ -1,11 +1,3 @@
-<!--
- * @Description: 
- * @Author: hutu
- * @Date: 2021-12-17 09:04:17
- * @LastEditors: hutu
- * @LastEditTime: 2021-12-27 10:43:15
--->
-
 <template>
   <div class="menu1-2">
     menu1-2

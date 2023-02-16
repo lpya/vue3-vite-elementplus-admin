@@ -1,21 +1,14 @@
-<!--
- * @Descripttion: 头部
- * @Author: hutu
- * @Date: 2021-12-09 22:36:40
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 15:56:26
--->
 <template>
   <div class="navbar">
     <div class="left">
-      <Hamburger @emitMenuCollapse="handleMenuCollapse" :collapse="menuCollapse" />
+      <Hamburger :collapse="menuCollapse" @emit-menu-collapse="handleMenuCollapse" />
       <Breadcrumb />
     </div>
     <div class="right">
-      <HeaderIcon :icon="'icon-home'" :title="'主页'" />
+      <a href="http://www.lpya.cn" target="_blank"> <HeaderIcon :icon="'icon-home'" :title="'主页'" /></a>
       <Screenfull />
       <HeaderAvatar />
-      <HeaderIcon :icon="'icon-setting'" :title="'设置'" @emitClick="drawerFlag = true" />
+      <HeaderIcon :icon="'icon-setting'" :title="'设置'" @emit-click="drawerFlag = true" />
     </div>
     <el-drawer v-model="drawerFlag" title="自定义主题颜色" size="350px">
       <SkinTheme style="padding-left: 20px" />
