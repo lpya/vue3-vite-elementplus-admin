@@ -1,10 +1,3 @@
-<!--
- * @Descripttion: 面包屑
- * @Author: hutu
- * @Date: 2021-12-13 08:41:23
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 10:50:56
--->
 <template>
   <div class="breadcrumb">
     <el-breadcrumb separator="/">

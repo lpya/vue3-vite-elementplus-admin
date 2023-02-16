@@ -5,7 +5,6 @@
  * @LastEditors: hutu
  * @LastEditTime: 2022-02-11 14:47:12
  */
-import { IAsyncRoutes, IPermission } from '@/interface'
 import { SET_ROUTES, GENERATE_ROUTES, SET_MENU_COLLAPSE } from '../type'
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'

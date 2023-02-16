@@ -1,52 +1,93 @@
-<!--
- * @Description: echarts图表初始化
- * @Author: hutu
- * @Date: 2021-12-30 10:32:19
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-11 09:39:24
--->
 <template>
   <div :id="prop.id" :style="{ width: prop.width, height: prop.height }"></div>
 </template>
 <script lang="ts" setup>
 import * as echarts from 'echarts/core'
-import { BarChart, LineChart, PieChart } from 'echarts/charts'
-import { TitleComponent, TooltipComponent, GridComponent, LegendComponent, ToolboxComponent } from 'echarts/components'
+import { BarChart, LineChart, PieChart, MapChart, LinesChart, ScatterChart, EffectScatterChart } from 'echarts/charts'
+import {
+  TitleComponent, //标题
+  TooltipComponent,
+  GridComponent,
+  LegendComponent,
+  ToolboxComponent,
+  GeoComponent,
+  VisualMapComponent,
+  DataZoomComponent
+} from 'echarts/components'
 import { LabelLayout, UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
-import { IEchartsOption } from '@/interface'
-echarts.use([BarChart, LineChart, PieChart, TitleComponent, TooltipComponent, ToolboxComponent, GridComponent, LegendComponent, LabelLayout, UniversalTransition, CanvasRenderer])
-
+import china from '@/assets/json/china.json'
+import world from '@/assets/json/world-zh.json'
 import { ref, onMounted, onBeforeUnmount, onActivated, onDeactivated } from 'vue'
 import { debounce } from 'throttle-debounce'
 
-const prop = defineProps<{
+echarts.use([
+  BarChart, //柱
+  LineChart, //线
+  PieChart, //圆
+  MapChart, //地图
+  LinesChart,
+  ScatterChart,
+  EffectScatterChart,
+  TitleComponent, //标题
+  TooltipComponent, //悬浮提示
+  ToolboxComponent, //悬浮提示
+  GridComponent, //格
+  LegendComponent,
+  LabelLayout,
+  UniversalTransition,
+  CanvasRenderer,
+  GeoComponent,
+  VisualMapComponent, //地图视觉
+  DataZoomComponent
+])
+
+interface IProp {
   id: string
   width: string
   height: string
   option: IEchartsOption
+  map?: boolean
+}
+
+const prop = withDefaults(defineProps<IProp>(), {
+  map: false
+})
+
+const emit = defineEmits<{
+  (e: 'emitEcharts', chart: echarts.ECharts): void
 }>()
 
-const chart = ref()
+let chart: echarts.ECharts
 /**
  * @desc: 初始化图表
  */
-const initChart = () => {
+// const emit = defineEmits(['emitEcharts'])
+const initChart = async () => {
+  if (prop.map) {
+    echarts.registerMap('china', {
+      geoJSON: china as any,
+      specialAreas: {}
+    })
+    echarts.registerMap('world', {
+      geoJSON: world as any,
+      specialAreas: {}
+    })
+  }
   const charts = echarts.init(document.getElementById(prop.id) as HTMLElement)
   charts.setOption(prop.option)
-  chart.value = charts
+  chart = charts
+  emit('emitEcharts', charts)
 }
 /**
  * @desc: 监听窗口变化重置图表
  */
 const chartResizeHandler = debounce(100, false, () => {
-  if (chart.value) {
-    chart.value.resize({
-      animation: {
-        duration: 200
-      }
-    })
-  }
+  chart.resize({
+    animation: {
+      duration: 200
+    }
+  })
 })
 /**
  * @desc: 添加监听窗口变化事件
@@ -58,7 +99,7 @@ const initResizeEvent = () => {
  * @desc: 移除监听窗口变化事件
  */
 const destroyResizeEvent = () => {
-  window.addEventListener('resize', chartResizeHandler)
+  window.removeEventListener('resize', chartResizeHandler)
 }
 
 /**
@@ -76,7 +117,7 @@ const destroySidebarResizeEvent = () => {
   sidebarElm && sidebarElm.removeEventListener('transitionend', chartResizeHandler)
 }
 
-const mounted = () => {
+const init = () => {
   initChart()
   initResizeEvent()
   initSidebarResizeEvent()
@@ -84,15 +125,13 @@ const mounted = () => {
 const beforeDestroy = () => {
   destroyResizeEvent()
   destroySidebarResizeEvent()
-  if (chart.value) {
-    chart.value.dispose()
-  }
+  chart.dispose()
 }
 
 let firstFlag = false //首次渲染
 onMounted(() => {
   firstFlag = true
-  mounted()
+  init()
 })
 onBeforeUnmount(() => {
   beforeDestroy()
@@ -103,7 +142,7 @@ onActivated(() => {
     firstFlag = false
     return false
   }
-  mounted()
+  init()
 })
 onDeactivated(() => {
   beforeDestroy()

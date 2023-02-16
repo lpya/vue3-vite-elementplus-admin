@@ -1,10 +1,3 @@
-<!--
- * @Description: 换肤
- * @Author: hutu
- * @Date: 2022-01-17 14:56:58
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 15:40:59
--->
 <template>
   <div class="theme">
     <div class="container">

@@ -3,9 +3,8 @@
  * @Author: hutu
  * @Date: 2021-12-24 17:15:21
  * @LastEditors: hutu
- * @LastEditTime: 2021-12-27 10:57:45
+ * @LastEditTime: 2023-02-14 09:14:22
  */
-import { IUser, ILogin } from '@/interface'
 import { USER_LOGIN, SET_TOKEN, USER_LOGOUT } from '../type'
 import { Commit } from 'vuex'
 import { getToken, setToken, removeToken } from '@/utils/auth'

@@ -1,10 +1,3 @@
-<!--
- * @Description: 汉堡按钮
- * @Author: hutu
- * @Date: 2021-12-22 14:53:31
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 15:53:02
--->
 <template>
   <div class="hamburger" @click="emitMenuCollapse">
     <el-icon class="iconfont" :class="props.collapse ? 'icon-indent' : 'icon-outdent'"></el-icon>

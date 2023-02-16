@@ -1,10 +1,3 @@
-<!--
- * @Description: 用户访问量统计
- * @Author: hutu
- * @Date: 2022-01-06 14:51:10
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 16:27:30
--->
 <template>
   <div class="line">
     <EchartInit id="line" width="100%" height="100%" :option="state.option" />
@@ -14,7 +7,6 @@
 import * as echarts from 'echarts/core'
 
 import EchartInit from '@/components/EchartInit/Index.vue'
-import { IEchartsOption } from '@/interface'
 import { reactive } from 'vue'
 const state = reactive({
   option: {

@@ -1,5 +1,3 @@
-import { ITheme } from '@/interface'
-
 const state: ITheme = {
   styles: {
     isLogo: true,

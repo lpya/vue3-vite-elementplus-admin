@@ -1,13 +1,6 @@
-<!--
- * @Descripttion: 侧边栏
- * @Author: hutu
- * @Date: 2021-12-07 08:36:02
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-19 13:56:55
--->
 <template>
   <div class="sidebar">
-    <div class="logo" v-if="styles.isLogo">
+    <div v-if="styles.isLogo" class="logo">
       <img src="@/assets/image/logo.png" alt="logo" />
       <div class="logo-text" :class="!props.collapse ? '' : 'logo-collapse'">后台管理系统</div>
     </div>

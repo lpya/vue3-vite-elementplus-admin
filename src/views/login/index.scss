@@ -1,0 +1,28 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .login-container {
+    position: relative;
+    .login-card {
+      padding: 20px;
+      width: 400px;
+      .el-form {
+        .el-button {
+          margin-top: 15px;
+          width: 100%;
+        }
+        .code {
+          display: flex;
+          width: 100%;
+          img {
+            cursor: pointer;
+            height: 33px;
+            background-color: #fff
+          }
+        }
+      }
+    }
+  }
+}

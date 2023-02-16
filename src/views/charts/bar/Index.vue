@@ -1,10 +1,3 @@
-<!--
- * @Description: 柱状图
- * @Author: hutu
- * @Date: 2022-01-06 14:51:10
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-17 14:27:46
--->
 <template>
   <div class="bar">
     <EchartInit id="bar" width="100%" height="100%" :option="state.option" />
@@ -13,7 +6,6 @@
 <script lang="ts" setup>
 import * as echarts from 'echarts/core'
 import EchartInit from '@/components/EchartInit/Index.vue'
-import { IEchartsOption } from '@/interface'
 import { reactive } from 'vue'
 const state = reactive({
   option: {
@@ -40,22 +32,20 @@ const state = reactive({
           color: 'rgba(180, 180, 180, 0.2)'
         },
         itemStyle: {
-          normal: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              {
-                offset: 0,
-                color: '#cee0f7'
-              },
-              {
-                offset: 0.7,
-                color: '#62a5f7'
-              },
-              {
-                offset: 1,
-                color: '#3a8df3'
-              }
-            ])
-          }
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: '#cee0f7'
+            },
+            {
+              offset: 0.7,
+              color: '#62a5f7'
+            },
+            {
+              offset: 1,
+              color: '#3a8df3'
+            }
+          ])
         }
       }
     ]
