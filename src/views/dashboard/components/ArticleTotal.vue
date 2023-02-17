@@ -5,7 +5,7 @@
       <div class="container-title">
         <div class="container-title-total">
           <div>文章总数</div>
-          <div>{{ 60 }}</div>
+          <div v-dynamic>{{ 60 }}</div>
         </div>
         <div class="container-title-text">
           <div class="item">

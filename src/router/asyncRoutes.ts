@@ -59,3 +59,32 @@ export const asyncRoutes: IAsyncRoutes[] = [
   },
   { father: 'sys.blog', identifier: 'theme', title: '换肤', type: 'menu', url: '/theme', icon: 'icon-skin-fill' }
 ]
+export const adminRoutes: IAsyncRoutes[] = [
+  {
+    father: 'sys.blog',
+    identifier: 'permission',
+    title: '权限控制',
+    type: 'menu',
+    url: '/permission',
+    icon: 'icon-guanliyuan',
+    children: [
+      { father: 'permission', identifier: 'admin', title: '路由-管理员', type: 'menu', url: '/admin', icon: 'icon-guanliyuan' },
+      { father: 'permission', identifier: 'btn', title: '按钮权限', type: 'menu', url: '/btn', icon: 'icon-guanliyuan' }
+    ]
+  }
+]
+
+export const visitorRoutes: IAsyncRoutes[] = [
+  {
+    father: 'sys.blog',
+    identifier: 'permission',
+    title: '权限控制',
+    type: 'menu',
+    url: '/permission',
+    icon: 'icon-guanliyuan',
+    children: [
+      { father: 'permission', identifier: 'visitor', title: '路由-访客', type: 'menu', url: '/visitor', icon: 'icon-guanliyuan' },
+      { father: 'permission', identifier: 'btn', title: '按钮权限', type: 'menu', url: '/btn', icon: 'icon-guanliyuan' }
+    ]
+  }
+]

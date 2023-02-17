@@ -22,13 +22,12 @@
 ├── public              # 静态资源
 │   └── favicon.ico     # favicon图标
 ├── src                 # 源代码
+│   ├── @types          # 类型定义
 │   ├── api             # 所有请求
 │   ├── assets          # 主题、样式、字体
 │   ├── components      # 全局公共组件
 │   ├── interface       # 全屏接口
 │   ├── layout          # 全局layout
-│   ├── filters         # 全局filters
-│   ├── plugins         # 插件
 │   ├── router          # 路由
 │   ├── store           # 全局store管理
 │   ├── styles          # 全局样式

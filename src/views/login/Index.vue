@@ -10,7 +10,14 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="pwd">
-            <el-input v-model="loginData.pwd" placeholder="password" type="password" @keyup.enter="login()" @blur="listenBlur()" @focus="listenFocus()">
+            <el-input
+              v-model="loginData.pwd"
+              placeholder="password"
+              type="password"
+              @keyup.enter="login()"
+              @blur="listenBlur()"
+              @focus="listenFocus()"
+            >
               <template #prefix> <i class="iconfont icon-lock-fill"></i> </template>
             </el-input>
           </el-form-item>
@@ -25,6 +32,10 @@
           <el-button type="primary" :loading="loading" @click="login()">{{ loading ? '登陆中' : '登陆' }}</el-button>
         </el-form>
       </el-card>
+      <div class="userPwd">
+        <div>账号：admin 密码：123456</div>
+        <div>账号：visitor 密码：123456</div>
+      </div>
     </div>
   </div>
 </template>
@@ -75,7 +86,7 @@ const login = async () => {
     return false
   }
   const { account, pwd, captcha_code } = state.loginData
-  if (account !== 'admin') {
+  if (account !== 'admin' && account !== 'visitor') {
     ElMessage({
       message: '账号或密码错误',
       type: 'error'

@@ -1,12 +1,3 @@
-/*
- * @Description:
- * @Author: hutu
- * @Date: 2022-01-12 14:16:11
- * @LastEditors: hutu
- * @LastEditTime: 2022-01-12 14:18:12
- */
-import { IDictionary } from '@/interface'
-
 /**
  * @desc: 获取url上的参数
  * @param {string} url 请求路径

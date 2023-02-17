@@ -7,6 +7,7 @@ import { TitleComponentOption, TooltipComponentOption, GridComponentOption, GeoC
 // 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
 
 declare global {
-  type IEchartsOption = echarts.ComposeOption<BarSeriesOption | LineSeriesOption | PieSeriesOption | TitleComponentOption | TooltipComponentOption | GridComponentOption | GeoComponentOption>
-  type IDictionary<T> = { [key: string]: T }
+  type IEchartsOption = echarts.ComposeOption<
+    BarSeriesOption | LineSeriesOption | PieSeriesOption | TitleComponentOption | TooltipComponentOption | GridComponentOption | GeoComponentOption
+  >
 }

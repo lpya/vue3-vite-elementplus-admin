@@ -5,7 +5,15 @@
       <div class="logo-text" :class="!props.collapse ? '' : 'logo-collapse'">后台管理系统</div>
     </div>
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu :background-color="styles.menuBg" :text-color="styles.menuTextColor" :active-text-color="styles.menuTextActiveColor" :default-active="props.route" mode="vertical" :collapse="props.collapse" :router="true">
+      <el-menu
+        :background-color="styles.menuBg"
+        :text-color="styles.menuTextColor"
+        :active-text-color="styles.menuTextActiveColor"
+        :default-active="props.route"
+        mode="vertical"
+        :collapse="props.collapse"
+        :router="true"
+      >
         <SidebarItem :list="props.list" :isFirst="true" />
       </el-menu>
     </el-scrollbar>
@@ -51,5 +59,12 @@ const props = defineProps<{
       display: none;
     }
   }
+}
+</style>
+
+<style>
+.scrollbar-wrapper {
+  height: calc(100vh - 70px);
+  overflow: auto;
 }
 </style>

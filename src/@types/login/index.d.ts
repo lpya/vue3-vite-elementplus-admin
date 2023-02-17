@@ -3,6 +3,6 @@ declare interface IUser {
 }
 
 declare interface ILogin {
-  username: string
-  password: string
+  account: string
+  pwd: string
 }

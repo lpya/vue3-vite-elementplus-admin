@@ -4,6 +4,7 @@
       <img src="@/assets/image/avatar.png" alt="logo" />
       <template #dropdown>
         <el-dropdown-menu>
+          <el-dropdown-item>{{ store.state.user.token }}</el-dropdown-item>
           <a href="https://www.lpya.cn/" target="_blank"> <el-dropdown-item>个人中心</el-dropdown-item> </a>
           <a href="https://github.com/lpya/vue3-vite-elementplus-admin" target="_blank"> <el-dropdown-item>项目地址</el-dropdown-item></a>
           <el-dropdown-item divided @click="logout">退出登陆</el-dropdown-item>
@@ -36,6 +37,7 @@ const logout = async () => {
   if (data) {
     router.push(`/?redirect=${fullPath}`)
   }
+  location.reload()
 }
 </script>
 <style lang="scss">

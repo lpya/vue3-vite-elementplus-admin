@@ -1,6 +1,8 @@
 <template>
   <div class="bar">
-    <EchartInit id="bar" width="100%" height="100%" :option="state.option" />
+    <div class="container">
+      <EchartInit id="bar" width="100%" height="100%" :option="state.option" />
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
@@ -55,6 +57,12 @@ const state = reactive({
 
 <style lang="scss" scoped>
 .bar {
-  height: 100%;
+  padding: 20px;
+  .container {
+    background: #fff;
+    border-radius: 5px;
+    height: calc(100vh - 131px);
+    padding: 20px;
+  }
 }
 </style>

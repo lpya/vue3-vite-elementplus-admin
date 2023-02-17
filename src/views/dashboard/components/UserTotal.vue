@@ -8,7 +8,7 @@
               <i class="iconfont icon-user"></i>
               <span>访客量</span>
             </div>
-            <div class="panel-item-number">560</div>
+            <div v-dynamic class="panel-item-number">560</div>
           </div>
         </el-col>
         <el-col :xs="24" :sm="12" :lg="6">
@@ -17,7 +17,7 @@
               <i class="iconfont icon-areachart"></i>
               <span>访问量</span>
             </div>
-            <div class="panel-item-number">646</div>
+            <div v-dynamic class="panel-item-number">646</div>
           </div>
         </el-col>
         <el-col :xs="24" :sm="12" :lg="6">
@@ -26,7 +26,7 @@
               <i class="iconfont icon-ip"></i>
               <span>IP数</span>
             </div>
-            <div class="panel-item-number">541</div>
+            <div v-dynamic class="panel-item-number">541</div>
           </div>
         </el-col>
         <el-col :xs="24" :sm="12" :lg="6">
@@ -35,7 +35,7 @@
               <i class="iconfont icon-file-text-fill"></i>
               <span>阅读量</span>
             </div>
-            <div class="panel-item-number">6423</div>
+            <div v-dynamic class="panel-item-number">6423</div>
           </div>
         </el-col>
       </el-row>

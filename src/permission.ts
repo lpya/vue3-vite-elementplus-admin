@@ -4,7 +4,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 //获取网站标题
 import { getPageTitle } from '@/utils/get-page-title'
-import { asyncRoutes } from '@/router/asyncRoutes'
+import { asyncRoutes, adminRoutes, visitorRoutes } from '@/router/asyncRoutes'
 
 import store from '@/store'
 import { GENERATE_ROUTES } from '@/store/type'
@@ -19,16 +19,29 @@ router.beforeEach(async (to, from, next) => {
   //设置site标题
   document.title = getPageTitle(String(to.meta.title))
   const toPath = to.path.replace('/', '')
-  if (getToken()) {
+  const token = getToken()
+  if (token) {
     if (to.path === '/') {
       next()
     } else {
       try {
         if (isDynamicRouter) {
+          if (token === 'admin') {
+            asyncRoutes.splice(1, 0, adminRoutes[0])
+          } else {
+            asyncRoutes.splice(1, 0, visitorRoutes[0])
+          }
           await store.dispatch(GENERATE_ROUTES, asyncRoutes)
           next({ ...to, replace: true })
           isDynamicRouter = false
         } else {
+          const { path } = to
+          if (token === 'admin' && path === '/permission/visitor') {
+            next('/dashboard')
+          }
+          if (token === 'visitor' && path === '/permission/admin') {
+            next('/dashboard')
+          }
           next()
         }
       } catch (error) {

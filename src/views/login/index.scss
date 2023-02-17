@@ -23,6 +23,15 @@
           }
         }
       }
+      
+    }
+  }
+  .userPwd{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    div{
+      margin-top: 10px;
     }
   }
 }

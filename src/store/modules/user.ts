@@ -3,7 +3,7 @@
  * @Author: hutu
  * @Date: 2021-12-24 17:15:21
  * @LastEditors: hutu
- * @LastEditTime: 2023-02-14 09:14:22
+ * @LastEditTime: 2023-02-17 08:50:14
  */
 import { USER_LOGIN, SET_TOKEN, USER_LOGOUT } from '../type'
 import { Commit } from 'vuex'
@@ -19,8 +19,8 @@ const mutations = {
 const actions = {
   [USER_LOGIN]({ commit }: { commit: Commit }, data: ILogin) {
     return new Promise((resolve) => {
-      setToken(data.username)
-      commit(SET_TOKEN, data.username)
+      setToken(data.account)
+      commit(SET_TOKEN, data.account)
       resolve(data)
     })
   },
