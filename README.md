@@ -55,8 +55,11 @@ git clone https://github.com/lpya/vue3-vite-elementplus-admin.git
 #进入项目目录
 cd vue3-vite-elementplus-admin
 
+#配置淘宝镜像
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
 #安装依赖
-npm install
+cnpm install
 
 #启动服务
 npm run dev
