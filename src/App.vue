@@ -23,6 +23,7 @@ const subMenuActive = computed(() => store.state.theme.styles.subMenuActive)
   }
   .app-header-bg {
     background: v-bind(headerBg);
+    height: 50px;
   }
   .app-main-bg {
     background: v-bind(mainBg);

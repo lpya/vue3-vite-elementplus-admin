@@ -44,15 +44,13 @@ const logout = async () => {
 .header-avatar {
   .el-dropdown {
     width: 50px;
-    div {
-      @extend .app-icon-hover;
-      img {
-        width: 80%;
-        height: 80%;
-        border-radius: 8px;
-        border: 1px solid #eee;
-        cursor: pointer;
-      }
+    @extend .app-icon-hover;
+    img {
+      width: 80%;
+      height: 80%;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      cursor: pointer;
     }
   }
 }
