@@ -55,17 +55,22 @@ git clone https://github.com/lpya/vue3-vite-elementplus-admin.git
 #进入项目目录
 cd vue3-vite-elementplus-admin
 
-#配置淘宝镜像
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-
 #安装依赖
-cnpm install
+npm install
 
 #启动服务
 npm run dev
 
-tips:由于UI组件按需引入，首次启动速度会慢点，可以修改配置，打包时按需引入，开发时全局引入
+#安装依赖报错时
+npm ERR! ERESOLVE could not resolve
+npm ERR!
+npm ERR! While resolving: @vue/eslint-config-prettier@6.0.0
+npm ERR! Found: eslint-plugin-prettier@4.2.1
 
+#配置淘宝镜像，使用cnpm install安装依赖
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+tips:由于UI组件按需引入，首次启动速度会慢点，可以修改配置，打包时按需引入，开发时全局引入
 ```
 
 ## 发布
