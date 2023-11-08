@@ -4,7 +4,7 @@
   </el-config-provider>
 </template>
 <script lang="ts" setup>
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 const store = useStore()
