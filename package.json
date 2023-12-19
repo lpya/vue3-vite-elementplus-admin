@@ -7,9 +7,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^1.6.2",
     "echarts": "^5.2.2",
-    "element-plus": "^2.0.1",
+    "element-plus": "^2.2.5",
     "js-cookie": "^3.0.1",
     "moment": "^2.29.4",
     "nprogress": "^0.2.0",
