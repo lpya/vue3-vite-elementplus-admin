@@ -33,5 +33,8 @@ export default defineConfig({
         additionalData: '@import "@/styles/variables";'
       }
     }
+  },
+  server: {
+    port: 30002
   }
 })
